@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven '3.9.11'
+        gradle 'gradle-8.14.3'
         jdk 'corretto-17'
     }
 
@@ -13,20 +13,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/Mirabbos7/MJC-School'
+                git credentialsId: 'github-cred', url: 'https://github.com/Mirabbos7/MJC-School'
             }
         }
 
         stage('Build & Test') {
             steps {
-                bat 'mvn clean verify'
+                bat 'gradle clean build'
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('LocalSonar') {
-                    bat 'mvn sonar:sonar'
+                    bat 'gradle sonarqube'
                 }
             }
         }
