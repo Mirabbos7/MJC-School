@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     tools {
-        gradle 'Gradle'
+        gradle 'gradle-8.14.3'
     }
 
     environment {
