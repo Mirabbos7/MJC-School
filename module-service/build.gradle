@@ -1,17 +1,27 @@
 plugins {
-    id 'java-library'
-    id 'org.springframework.boot' version '3.2.0'}
+    id 'java'
+}
+
+group = 'com.mjc.school'
+version = 'unspecified'
+
+repositories {
+    mavenCentral()
+}
 
 dependencies {
-    implementation project(':module-repository')
-    implementation 'org.projectlombok:lombok:1.18.26'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
 
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+
+    implementation(project(":module-repository"));
 }
-bootJar {
-    enabled = false
-}
 
-jar {
-    enabled = true
+test {
+    useJUnitPlatform()
 }

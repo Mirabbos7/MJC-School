@@ -1,9 +1,6 @@
-rootProject.name = 'MJC-School'
-
+rootProject.name = 'stage3-module1-task'
 include 'module-repository'
 include 'module-service'
+include 'module-main'
 include 'module-web'
 
-
-include 'module-main'
-include 'module-main'

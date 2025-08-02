@@ -1,6 +1,5 @@
-/.gradle/
 /.idea/
+/test-output/
 /build/
-/module-repository/build/
-/module-service/build/
-/module-web/build/
+/.idea/
+/.gradle/

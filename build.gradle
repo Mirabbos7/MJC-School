@@ -1,31 +1,15 @@
 plugins {
-    id 'java-base'
-    id "org.sonarqube"
-    id 'jacoco'
+    id 'java'
 }
 
 wrapper {
     gradleVersion = gradlewVersion
 }
-jacoco {
-    toolVersion = "0.8.11"
-}
-
-sonar {
-    properties {
-        property "sonar.projectKey", "my-news-project"
-        property "sonar.projectName", "my-news-project"
-        property "sonar.login", "sqp_ba9534f64c6dc5d483f9ace066125e30e8363329"
-        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
-    }
-}
-
 
 subprojects {
     apply plugin: 'java'
     apply plugin: 'jacoco'
     group = 'com.mjc.school'
-
     sourceCompatibility = javaVersion
     targetCompatibility = javaVersion
 
@@ -33,67 +17,25 @@ subprojects {
         mavenCentral()
     }
 
-
     dependencies {
-
-        implementation "org.springframework:spring-context:$springVersion"
-        implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.7'
-        implementation 'org.springframework.boot:spring-boot-starter-web:2.7.7'
-        implementation group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas', version: '2.7.7'
-        testImplementation "org.springframework:spring-test:$springVersion"
-        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.7'
-
-
-
-        implementation 'org.postgresql:postgresql:42.6.0'
-
-
-        implementation 'javax.xml.bind:jaxb-api:2.3.1'
-        implementation 'javax.validation:validation-api:2.0.1.Final'
-
-
-        testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
-        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
-
-        testImplementation "com.tngtech.archunit:archunit:$archUnitVersion"
-        testImplementation "com.tngtech.archunit:archunit-junit5:1.0.0"
-
-        testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
-
-        annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
-        implementation "org.mapstruct:mapstruct:$mapstructVersion"
-        testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.5.1'
-
-
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     }
+
     test {
         useJUnitPlatform()
-        finalizedBy jacocoTestReport
-    }
-    jacocoTestReport {
-        dependsOn test
-
-        reports {
-            xml.required = true
-            csv.required = false
-        }
-    }
-    jacocoTestCoverageVerification {
-        violationRules {
-            rule {
-                element = 'CLASS'
-                limit {
-                    counter = 'INSTRUCTION'
-                    value = 'COVEREDRATIO'
-                    minimum = 0.20
-                }
-            }
-        }
     }
 }
 
-
-
-
-
-
+task repack(type: Jar, dependsOn: ':module-main:build') {
+    if (findProject(':module-main') != null) {
+        entryCompression = ZipEntryCompression.STORED
+        def buildJar = zipTree("${project(':module-main').buildDir}/libs/module-main-all.jar")
+        from(buildJar) { into('/') }
+        manifest {
+            attributes(
+                    'Main-Class': 'com.mjc.school.Main'
+            )
+        }
+    }
+}
