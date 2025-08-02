@@ -42,7 +42,7 @@ pipeline {
                     "-Dsonar.sources=. " +
                     "-Dsonar.java.binaries=module-main/build/classes/java/main " +
                     "-Dsonar.host.url=http://localhost:9000 " +
-                    "-Dsonar.login=%SONAR_TOKEN"
+                    "-Dsonar.login=%SONAR_TOKEN%"
             }
         }
 
