@@ -9,9 +9,7 @@ pipeline {
     environment {
         // Добавляем сканер SonarQube из Jenkins -> Global Tool Configuration
         SONARQUBE_SCANNER_HOME = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-        PATH = "${env.PATH};${SONAR_SCANNER_HOME}\\bin"
-        SONAR_TOKEN = credentials('sonar-token')
-    }
+            }
 
     stages {
         stage('Checkout') {
