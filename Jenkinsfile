@@ -33,7 +33,7 @@ pipeline {
                     "-Dsonar.sources=. " +
                     "-Dsonar.java.binaries=module-main/build/classes/java/main " +
                     "-Dsonar.host.url=http://localhost:9000 " +
-                    "-Dsonar.login=%SONAR_TOKEN%"
+                    "-Dsonar.login=sqa_7168aadb806dc0068bc90624df5c4ee91b6bee36"
             }
         }
 
