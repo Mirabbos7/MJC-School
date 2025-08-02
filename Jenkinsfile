@@ -26,7 +26,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                bat 'sonar-server'
+                bat 'SonarQube'
             }
         }
 
