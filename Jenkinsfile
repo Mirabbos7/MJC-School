@@ -7,7 +7,6 @@ pipeline {
     }
 
     environment {
-        // Добавляем сканер SonarQube из Jenkins -> Global Tool Configuration
         SONARQUBE_SCANNER_HOME = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
             }
 
@@ -40,7 +39,14 @@ pipeline {
                 bat 'gradle test jacocoTestReport'
             }
         }
-    }
+
+        stage('Quality Gate'){
+            steps{
+            timeout(time:2, unit: 'MINUTES'){
+                waitForQualityGate abortPipeline: true
+                }
+            }
+        }
 
     post {
         always {
