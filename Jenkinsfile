@@ -14,15 +14,6 @@ pipeline {
     }
 
     stages {
-          stage('Load .env') {
-               steps {
-                   script {
-                       def props = readProperties file: '.env'
-                       env.SONAR_TOKEN = props['SONAR_TOKEN']
-                   }
-                }
-          }
-
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/Mirabbos7/MJC-School', branch: 'main', credentialsId: 'github-cred'
