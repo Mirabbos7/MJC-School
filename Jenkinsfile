@@ -13,20 +13,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'github-cred', url: 'https://github.com/Mirabbos7/MJC-School'
+                git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/Mirabbos7/MJC-School'
             }
         }
 
         stage('Build & Test') {
             steps {
-                sh 'mvn clean verify'
+                bat 'mvn clean verify'
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('LocalSonar') {
-                    sh 'mvn sonar:sonar'
+                    bat 'mvn sonar:sonar'
                 }
             }
         }
@@ -36,12 +36,6 @@ pipeline {
                 timeout(time: 2, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
-            }
-        }
-
-        stage('Deploy to Tomcat') {
-            steps {
-                deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://localhost:8080')], contextPath: 'yourapp', war: 'target/yourapp.war'
             }
         }
     }
