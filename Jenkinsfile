@@ -26,7 +26,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                bat 'gradle sonar'
+                bat 'sonar-server'
             }
         }
 
