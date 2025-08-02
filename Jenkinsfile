@@ -27,7 +27,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonar-server'){
                 bat """
-                 sonar-scanner ^
+                 "%SONAR_SCANNER_HOME%\\bin\\sonar-scanner.bat" ^
                 -Dsonar.projectKey=MJC-School ^
                 -Dsonar.sources=. ^
                 -Dsonar.java.binaries=module-main/build/classes/java/main
