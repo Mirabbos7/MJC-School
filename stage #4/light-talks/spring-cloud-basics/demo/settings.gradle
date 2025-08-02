@@ -1,6 +1,0 @@
-rootProject.name = 'demo'
-include 'hotelService'
-include 'configServer'
-include 'eurekaServer'
-include 'discountServer'
-include 'gatewayServer'

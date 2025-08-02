@@ -1,2 +1,0 @@
-com/epam/light/talks/docker/Main.java
- com.epam.light.talks.docker.Main
