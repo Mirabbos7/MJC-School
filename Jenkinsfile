@@ -6,10 +6,6 @@ pipeline {
         jdk 'corretto-17'
     }
 
-    environment {
-        SONARQUBE_SCANNER_HOME = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-            }
-
     stages {
         stage('Checkout') {
             steps {
@@ -25,16 +21,20 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonar-server'){
-                bat """
-                 "%SONAR_SCANNER_HOME%\\bin\\sonar-scanner.bat" ^
-                -Dsonar.projectKey=MJC-School ^
-                -Dsonar.sources=. ^
-                -Dsonar.java.binaries=module-main/build/classes/java/main
-                                    """
-                                    }
+                script {
+                    def scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                    withSonarQubeEnv('sonar-server') {
+                        bat """
+                        "${scannerHome}\\bin\\sonar-scanner.bat" ^
+                        -Dsonar.projectKey=MJC-School ^
+                        -Dsonar.sources=. ^
+                        -Dsonar.java.binaries=module-main/build/classes/java/main
+                        """
+                    }
+                }
             }
         }
+
 
         stage('Test & Coverage') {
             steps {
