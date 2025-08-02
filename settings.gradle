@@ -1,0 +1,6 @@
+rootProject.name = 'MJC-School'
+
+include 'module-repository'
+include 'module-service'
+include 'module-web'
+
