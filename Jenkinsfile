@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'github-cred', url: 'https://github.com/Mirabbos7/MJC-School'
+                git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/Mirabbos7/MJC-School.git'
             }
         }
 
