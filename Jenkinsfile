@@ -21,19 +21,20 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                script {
-                    def scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-                    withSonarQubeEnv('sonar-server') {  // Name from Jenkins settings
+                withSonarQubeEnv('sonar-server') {
+                    withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
                         bat """
-                        "${scannerHome}\\bin\\sonar-scanner.bat" ^
+                        "${tool 'SonarQube Scanner'}\\bin\\sonar-scanner.bat" ^
                         -Dsonar.projectKey=MJC-School ^
                         -Dsonar.sources=. ^
-                        -Dsonar.java.binaries=module-main/build/classes/java/main
+                        -Dsonar.java.binaries=module-main/build/classes/java/main ^
+                        -Dsonar.token=%SONAR_TOKEN%
                         """
                     }
                 }
             }
         }
+
 
         stage('Test & Coverage') {
             steps {
