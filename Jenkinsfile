@@ -23,19 +23,17 @@ pipeline {
             steps {
                 script {
                     def scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-                    withSonarQubeEnv('sonar-server') {
+                    withSonarQubeEnv('sonar-server') {  // Name from Jenkins settings
                         bat """
                         "${scannerHome}\\bin\\sonar-scanner.bat" ^
                         -Dsonar.projectKey=MJC-School ^
                         -Dsonar.sources=. ^
-                        -Dsonar.java.binaries=module-main/build/classes/java/main ^
-                        -Dsonar.token=sqa_7f052d93b416ecb36d6359501a490b2f3001cd64
+                        -Dsonar.java.binaries=module-main/build/classes/java/main
                         """
                     }
                 }
             }
         }
-
 
         stage('Test & Coverage') {
             steps {
@@ -43,10 +41,10 @@ pipeline {
             }
         }
 
-        stage('Quality Gate'){
-            steps{
-            timeout(time:2, unit: 'MINUTES'){
-                waitForQualityGate abortPipeline: true
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 2, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
