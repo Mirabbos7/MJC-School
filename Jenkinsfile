@@ -21,7 +21,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonar-token2') {
+                withSonarQubeEnv('MySonar') {
                     withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
                         bat """
                         "${tool 'SonarQube Scanner'}\\bin\\sonar-scanner.bat" ^
