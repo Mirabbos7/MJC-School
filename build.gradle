@@ -31,8 +31,10 @@ subprojects {
 
     jacocoTestReport {
         dependsOn test
-        reports{
-            xml.enabled(true)
+        reports {
+            xml.required.set(true)
+            csv.required.set(false)
+            html.required.set(true)
         }
     }
 
