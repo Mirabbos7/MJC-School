@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">module-repository</a> &gt; <a href="index.source.html" class="el_package">com.mjc.school.repository.source</a> &gt; <span class="el_source">DataSource.java</span></div><h1>DataSource.java</h1><pre class="source lang-java linenums">package com.mjc.school.repository.source;
+
+import com.mjc.school.repository.model.AuthorModel;
+import com.mjc.school.repository.model.NewsModel;
+import com.mjc.school.repository.util.DataReader;
+
+import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
+public class DataSource {
+
+<span class="fc" id="L16">    private final static DataSource instance = new DataSource();</span>
+
+<span class="fc" id="L18">    private final String AUTHORS_FILE_NAME = &quot;author.txt&quot;;</span>
+<span class="fc" id="L19">    private final String CONTENT_FILE_NAME = &quot;content.txt&quot;;</span>
+<span class="fc" id="L20">    private final String TITLES_FILE_NAME = &quot;titles.txt&quot;;</span>
+
+    public static DataSource getInstance() {
+<span class="fc" id="L23">        return DataSource.instance;</span>
+    }
+
+<span class="fc" id="L26">    private DataSource() {</span>
+
+<span class="fc" id="L28">    }</span>
+
+    public List&lt;AuthorModel&gt; readAuthors() {
+<span class="fc" id="L31">        List&lt;AuthorModel&gt; authorsList = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L32">        List&lt;String&gt; authorsLines = DataReader.read(AUTHORS_FILE_NAME);</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (String author : authorsLines) {</span>
+<span class="fc" id="L34">            authorsList.add(new AuthorModel(author));</span>
+<span class="fc" id="L35">        }</span>
+<span class="fc" id="L36">        return authorsList;</span>
+    }
+
+    public List&lt;NewsModel&gt; readNews() {
+<span class="fc" id="L40">        List&lt;NewsModel&gt; newsList = new LinkedList&lt;&gt;();</span>
+
+<span class="fc" id="L42">        List&lt;AuthorModel&gt; authorsList = readAuthors();</span>
+<span class="fc" id="L43">        List&lt;String&gt; titlesLines = DataReader.read(TITLES_FILE_NAME);</span>
+<span class="fc" id="L44">        List&lt;String&gt; contentLines = DataReader.read(CONTENT_FILE_NAME);</span>
+
+
+<span class="fc" id="L47">        Random random = new SecureRandom();</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (long i = 1; i &lt;= 20; i++) {</span>
+<span class="fc" id="L49">            newsList.add(new NewsModel(</span>
+<span class="fc" id="L50">                    titlesLines.get(random.nextInt(titlesLines.size())),</span>
+<span class="fc" id="L51">                    contentLines.get(random.nextInt(contentLines.size())),</span>
+<span class="fc" id="L52">                    LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS), LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS),</span>
+<span class="fc" id="L53">                    authorsList.get(random.nextInt(authorsList.size())).getId()));</span>
+        }
+
+<span class="fc" id="L56">        return newsList;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
