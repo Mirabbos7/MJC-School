@@ -26,9 +26,8 @@ pipeline {
                         bat """
                         "${tool 'SonarQube Scanner'}\\bin\\sonar-scanner.bat" ^
                         -Dsonar.projectKey=MJC-School ^
-                        -Dsonar.sources=. ^
-                        -Dsonar.java.binaries=module-main/build/classes/java/main ^
-                        -Dsonar.token=%SONAR_TOKEN%
+                        -Dsonar.token=%SONAR_TOKEN% ^
+                        -Dproject.settings=sonar-project.properties
                         """
                     }
                 }

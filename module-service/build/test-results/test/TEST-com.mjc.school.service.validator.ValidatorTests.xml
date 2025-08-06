@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.service.validator.ValidatorTests" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-08-06T17:05:57" hostname="MIRAKING" time="0.049">
+<testsuite name="com.mjc.school.service.validator.ValidatorTests" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-08-06T18:00:22" hostname="MIRAKING" time="0.028">
   <properties/>
-  <testcase name="nullTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.033"/>
+  <testcase name="nullTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.004"/>
   <testcase name="longTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <testcase name="validateAuthorId_invalidId_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <testcase name="validateNewsId_validateNewsId_validId_doesNotThrow()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
   <testcase name="invalidAuthor_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
-  <testcase name="longContent_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
-  <testcase name="shortContent_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
+  <testcase name="longContent_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
+  <testcase name="shortContent_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
   <testcase name="validId_doesNotThrow()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
-  <testcase name="shortTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
-  <testcase name="invalidId_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
-  <testcase name="validDto_doesNotThrow()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
+  <testcase name="shortTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
+  <testcase name="invalidId_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
+  <testcase name="validDto_doesNotThrow()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
