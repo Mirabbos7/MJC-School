@@ -12,21 +12,21 @@ public class NewsRepository {
     private final List&lt;NewsModel&gt; newsList;
     private long nextId;
 
-<span class="nc" id="L15">    private static final NewsRepository instance = new NewsRepository();</span>
+<span class="fc" id="L15">    private static final NewsRepository instance = new NewsRepository();</span>
 
-<span class="nc" id="L17">    public NewsRepository() {</span>
-<span class="nc" id="L18">        dataSource = DataSource.getInstance();</span>
-<span class="nc" id="L19">        this.newsList = dataSource.readNews();</span>
-<span class="nc" id="L20">        nextId = 1;</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">        for (NewsModel news : newsList) {</span>
-<span class="nc bnc" id="L22" title="All 2 branches missed.">            if (news.getId() &gt;= nextId) {</span>
-<span class="nc" id="L23">                nextId = news.getId() + 1;</span>
+<span class="fc" id="L17">    public NewsRepository() {</span>
+<span class="fc" id="L18">        dataSource = DataSource.getInstance();</span>
+<span class="fc" id="L19">        this.newsList = dataSource.readNews();</span>
+<span class="fc" id="L20">        nextId = 1;</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (NewsModel news : newsList) {</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">            if (news.getId() &gt;= nextId) {</span>
+<span class="fc" id="L23">                nextId = news.getId() + 1;</span>
             }
-<span class="nc" id="L25">        }</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L25">        }</span>
+<span class="fc" id="L26">    }</span>
 
     public static NewsRepository getInstance() {
-<span class="nc" id="L29">        return instance;</span>
+<span class="fc" id="L29">        return instance;</span>
     }
 
     public List&lt;NewsModel&gt; readAll() {
@@ -34,12 +34,12 @@ public class NewsRepository {
     }
 
     public NewsModel readBy(Long id) {
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (NewsModel news : newsList) {</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">            if (news.getId().equals(id)) {</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (NewsModel news : newsList) {</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">            if (news.getId().equals(id)) {</span>
 <span class="nc" id="L39">                return news;</span>
             }
-<span class="nc" id="L41">        }</span>
-<span class="nc" id="L42">        return null;</span>
+<span class="fc" id="L41">        }</span>
+<span class="fc" id="L42">        return null;</span>
     }
 
     public NewsModel create(NewsModel news) {

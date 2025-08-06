@@ -13,48 +13,48 @@ import java.util.Random;
 
 public class DataSource {
 
-<span class="nc" id="L16">    private final static DataSource instance = new DataSource();</span>
+<span class="fc" id="L16">    private final static DataSource instance = new DataSource();</span>
 
-<span class="nc" id="L18">    private final String AUTHORS_FILE_NAME = &quot;author.txt&quot;;</span>
-<span class="nc" id="L19">    private final String CONTENT_FILE_NAME = &quot;content.txt&quot;;</span>
-<span class="nc" id="L20">    private final String TITLES_FILE_NAME = &quot;titles.txt&quot;;</span>
+<span class="fc" id="L18">    private final String AUTHORS_FILE_NAME = &quot;author.txt&quot;;</span>
+<span class="fc" id="L19">    private final String CONTENT_FILE_NAME = &quot;content.txt&quot;;</span>
+<span class="fc" id="L20">    private final String TITLES_FILE_NAME = &quot;titles.txt&quot;;</span>
 
     public static DataSource getInstance() {
-<span class="nc" id="L23">        return DataSource.instance;</span>
+<span class="fc" id="L23">        return DataSource.instance;</span>
     }
 
-<span class="nc" id="L26">    DataSource() {</span>
+<span class="fc" id="L26">    DataSource() {</span>
 
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L28">    }</span>
 
     public List&lt;AuthorModel&gt; readAuthors() {
-<span class="nc" id="L31">        List&lt;AuthorModel&gt; authorsList = new LinkedList&lt;&gt;();</span>
-<span class="nc" id="L32">        List&lt;String&gt; authorsLines = DataReader.read(AUTHORS_FILE_NAME);</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (String author : authorsLines) {</span>
-<span class="nc" id="L34">            authorsList.add(new AuthorModel(author));</span>
-<span class="nc" id="L35">        }</span>
-<span class="nc" id="L36">        return authorsList;</span>
+<span class="fc" id="L31">        List&lt;AuthorModel&gt; authorsList = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L32">        List&lt;String&gt; authorsLines = DataReader.read(AUTHORS_FILE_NAME);</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (String author : authorsLines) {</span>
+<span class="fc" id="L34">            authorsList.add(new AuthorModel(author));</span>
+<span class="fc" id="L35">        }</span>
+<span class="fc" id="L36">        return authorsList;</span>
     }
 
     public List&lt;NewsModel&gt; readNews() {
-<span class="nc" id="L40">        List&lt;NewsModel&gt; newsList = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L40">        List&lt;NewsModel&gt; newsList = new LinkedList&lt;&gt;();</span>
 
-<span class="nc" id="L42">        List&lt;AuthorModel&gt; authorsList = readAuthors();</span>
-<span class="nc" id="L43">        List&lt;String&gt; titlesLines = DataReader.read(TITLES_FILE_NAME);</span>
-<span class="nc" id="L44">        List&lt;String&gt; contentLines = DataReader.read(CONTENT_FILE_NAME);</span>
+<span class="fc" id="L42">        List&lt;AuthorModel&gt; authorsList = readAuthors();</span>
+<span class="fc" id="L43">        List&lt;String&gt; titlesLines = DataReader.read(TITLES_FILE_NAME);</span>
+<span class="fc" id="L44">        List&lt;String&gt; contentLines = DataReader.read(CONTENT_FILE_NAME);</span>
 
 
-<span class="nc" id="L47">        Random random = new SecureRandom();</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (long i = 1; i &lt;= 20; i++) {</span>
-<span class="nc" id="L49">            newsList.add(new NewsModel(</span>
-<span class="nc" id="L50">                    i,</span>
-<span class="nc" id="L51">                    titlesLines.get(random.nextInt(titlesLines.size())),</span>
-<span class="nc" id="L52">                    contentLines.get(random.nextInt(contentLines.size())),</span>
-<span class="nc" id="L53">                    LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS), LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS),</span>
-<span class="nc" id="L54">                    authorsList.get(random.nextInt(authorsList.size())).getId()));</span>
+<span class="fc" id="L47">        Random random = new SecureRandom();</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (long i = 1; i &lt;= 20; i++) {</span>
+<span class="fc" id="L49">            newsList.add(new NewsModel(</span>
+<span class="fc" id="L50">                    i,</span>
+<span class="fc" id="L51">                    titlesLines.get(random.nextInt(titlesLines.size())),</span>
+<span class="fc" id="L52">                    contentLines.get(random.nextInt(contentLines.size())),</span>
+<span class="fc" id="L53">                    LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS), LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS),</span>
+<span class="fc" id="L54">                    authorsList.get(random.nextInt(authorsList.size())).getId()));</span>
         }
 
-<span class="nc" id="L57">        return newsList;</span>
+<span class="fc" id="L57">        return newsList;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

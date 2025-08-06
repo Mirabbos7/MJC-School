@@ -36,6 +36,13 @@ public class NewsRepositoryTests {
     }
 
     @Test
+    void readById_returnsNullWhenNotFound() {
+        NewsModel found = NewsRepository.getInstance().readBy(-999L);
+
+        assertNull(found);
+    }
+
+    @Test
     void create_shouldAddNewsToList() {
         NewsRepository repo = new NewsRepository();
         int sizeBefore = repo.readAll().size();
