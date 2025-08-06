@@ -67,6 +67,20 @@ public class NewsRepositoryTests {
     }
 
     @Test
+    void update_throwsExceptionWhenNewsNotFound() {
+        NewsModel nonExistingNews = new NewsModel(
+                999L,
+                "Non Existing",
+                "No Content",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                1L
+        );
+
+        assertThrows(NullPointerException.class, () -> newsRepository.update(nonExistingNews));
+    }
+
+    @Test
     void delete() {
         int sizeBefore = NewsRepository.getInstance().readAll().size();
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.repository.impl.NewsRepositoryTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-06T23:27:25" hostname="MIRAKING" time="0.05">
+<testsuite name="com.mjc.school.repository.impl.NewsRepositoryTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-06T23:35:00" hostname="MIRAKING" time="0.063">
   <properties/>
-  <testcase name="readById_returnsNullWhenNotFound()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.05"/>
+  <testcase name="update_throwsExceptionWhenNewsNotFound()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.063"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
