@@ -10,7 +10,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-08-03T19:36:58+0500",
+    date = "2025-08-06T22:11:10+0500",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.2.jar, environment: Java 17.0.14 (Amazon.com Inc.)"
 )
 public class NewsMapperImpl implements NewsMapper {
@@ -70,8 +70,9 @@ public class NewsMapperImpl implements NewsMapper {
 
         LocalDateTime createDate = null;
         LocalDateTime lastUpdateDate = null;
+        Long id = null;
 
-        NewsModel newsModel = new NewsModel( title, content, createDate, lastUpdateDate, authorId );
+        NewsModel newsModel = new NewsModel( id, title, content, createDate, lastUpdateDate, authorId );
 
         return newsModel;
     }

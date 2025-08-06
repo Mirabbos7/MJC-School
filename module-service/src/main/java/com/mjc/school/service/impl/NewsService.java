@@ -13,7 +13,7 @@ import java.util.List;
 
 public class NewsService {
 
-    private final NewsRepository newsRepository = NewsRepository.getInstance();
+    private NewsRepository newsRepository = NewsRepository.getInstance();
 
     private Validator newValidator = new Validator();
 

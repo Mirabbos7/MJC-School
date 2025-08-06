@@ -1,0 +1,137 @@
+package com.mjc.school.controller;
+import com.mjc.school.service.dto.NewsRequestDto;
+import com.mjc.school.service.dto.NewsResponseDto;
+import com.mjc.school.service.impl.NewsService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+class NewsControllerTests {
+    @Mock
+    private NewsService newsService;
+
+    @InjectMocks
+    private NewsController newsController;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    void readAll_returnsListFromService() {
+        NewsResponseDto response = new NewsResponseDto(
+                1L,
+                "Title",
+                "Content",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                1L
+        );
+        when(newsService.readAll()).thenReturn(List.of(response));
+
+        List<NewsResponseDto> result = newsController.readAll();
+
+        assertEquals(1, result.size());
+        assertEquals("Title", result.get(0).title());
+        verify(newsService, times(1)).readAll();
+    }
+
+    @Test
+    void readById_returnsDtoFromService() {
+        NewsResponseDto response = new NewsResponseDto(
+                2L,
+                "Another Title",
+                "Another Content",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                2L
+        );
+        when(newsService.readById(2L)).thenReturn(response);
+
+        NewsResponseDto result = newsController.readById(2L);
+
+        assertNotNull(result);
+        assertEquals(2L, result.id());
+        assertEquals("Another Title", result.title());
+        verify(newsService, times(1)).readById(2L);
+    }
+
+    @Test
+    void create_callsServiceAndReturnsDto() {
+        NewsRequestDto request = new NewsRequestDto(
+                "Create Title",
+                "Create Content",
+                3L
+        );
+        NewsResponseDto response = new NewsResponseDto(
+                3L,
+                "Create Title",
+                "Create Content",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                3L
+        );
+        when(newsService.create(request)).thenReturn(response);
+
+        NewsResponseDto result = newsController.create(request);
+
+        assertNotNull(result);
+        assertEquals("Create Title", result.title());
+        assertEquals(3L, result.authorId());
+        verify(newsService, times(1)).create(request);
+    }
+
+    @Test
+    void update_callsServiceAndReturnsDto() {
+        NewsRequestDto request = new NewsRequestDto(
+                "Updated Title",
+                "Updated Content",
+                4L
+        );
+        NewsResponseDto response = new NewsResponseDto(
+                4L,
+                "Updated Title",
+                "Updated Content",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                4L
+        );
+        when(newsService.update(request)).thenReturn(response);
+
+        NewsResponseDto result = newsController.update(request);
+
+        assertNotNull(result);
+        assertEquals("Updated Title", result.title());
+        verify(newsService, times(1)).update(request);
+    }
+
+    @Test
+    void delete_returnsTrueFromService() {
+
+        when(newsService.delete(5L)).thenReturn(true);
+
+        boolean result = newsController.delete(5L);
+
+        assertTrue(result);
+        verify(newsService, times(1)).delete(5L);
+    }
+
+    @Test
+    void delete_returnsFalseFromService() {
+        when(newsService.delete(99L)).thenReturn(false);
+
+        boolean result = newsController.delete(99L);
+
+        assertFalse(result);
+        verify(newsService, times(1)).delete(99L);
+    }
+}

@@ -3,8 +3,6 @@
 import java.time.LocalDateTime;
 
 public class NewsModel {
-<span class="fc" id="L6">    private static long autoId = 1;</span>
-
     private final Long id;
     private String title;
     private String content;
@@ -12,69 +10,84 @@ public class NewsModel {
     private LocalDateTime lastUpdateDate;
     private Long authorId;
 
-<span class="fc" id="L15">    public NewsModel(String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, Long authorId) {</span>
-<span class="fc" id="L16">        this.id = autoId++;</span>
-<span class="fc" id="L17">        this.title = title;</span>
-<span class="fc" id="L18">        this.content = content;</span>
-<span class="fc" id="L19">        this.createDate = createDate;</span>
-<span class="fc" id="L20">        this.lastUpdateDate = lastUpdateDate;</span>
-<span class="fc" id="L21">        this.authorId = authorId;</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L13">    public NewsModel(Long id, String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, Long authorId) {</span>
+<span class="fc" id="L14">        this.id = id;</span>
+<span class="fc" id="L15">        this.title = title;</span>
+<span class="fc" id="L16">        this.content = content;</span>
+<span class="fc" id="L17">        this.createDate = createDate;</span>
+<span class="fc" id="L18">        this.lastUpdateDate = lastUpdateDate;</span>
+<span class="fc" id="L19">        this.authorId = authorId;</span>
+<span class="fc" id="L20">    }</span>
 
-    public long getId() {
-<span class="fc" id="L25">        return id;</span>
+    public Long getId() {
+<span class="fc" id="L23">        return id;</span>
     }
 
     public String getTitle() {
-<span class="fc" id="L29">        return title;</span>
+<span class="fc" id="L27">        return title;</span>
     }
 
     public void setTitle(String title) {
-<span class="fc" id="L33">        this.title = title;</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L31">        this.title = title;</span>
+<span class="fc" id="L32">    }</span>
 
     public String getContent() {
-<span class="fc" id="L37">        return content;</span>
+<span class="fc" id="L35">        return content;</span>
     }
 
     public void setContent(String content) {
-<span class="fc" id="L41">        this.content = content;</span>
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L39">        this.content = content;</span>
+<span class="fc" id="L40">    }</span>
 
     public LocalDateTime getCreateDate() {
-<span class="nc" id="L45">        return createDate;</span>
+<span class="nc" id="L43">        return createDate;</span>
     }
 
     public void setCreateDate(LocalDateTime createDate) {
-<span class="nc" id="L49">        this.createDate = createDate;</span>
-<span class="nc" id="L50">    }</span>
+<span class="nc" id="L47">        this.createDate = createDate;</span>
+<span class="nc" id="L48">    }</span>
 
     public LocalDateTime getLastUpdateDate() {
-<span class="fc" id="L53">        return lastUpdateDate;</span>
+<span class="fc" id="L51">        return lastUpdateDate;</span>
     }
 
     public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
-<span class="fc" id="L57">        this.lastUpdateDate = lastUpdateDate;</span>
-<span class="fc" id="L58">    }</span>
+<span class="fc" id="L55">        this.lastUpdateDate = lastUpdateDate;</span>
+<span class="fc" id="L56">    }</span>
 
-    public long getAuthorId() {
-<span class="fc" id="L61">        return authorId;</span>
+    public Long getAuthorId() {
+<span class="fc" id="L59">        return authorId;</span>
     }
 
-    public void setAuthorId(long authorId) {
-<span class="fc" id="L65">        this.authorId = authorId;</span>
-<span class="fc" id="L66">    }</span>
+    public void setAuthorId(Long authorId) {
+<span class="fc" id="L63">        this.authorId = authorId;</span>
+<span class="fc" id="L64">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L70">        return &quot;Author{&quot; +</span>
+<span class="nc" id="L68">        return &quot;NewsModel{&quot; +</span>
                 &quot;id=&quot; + id +
                 &quot;, title='&quot; + title + '\'' +
-                &quot;, content.txt='&quot; + content + '\'' +
+                &quot;, content='&quot; + content + '\'' +
                 &quot;, createDate=&quot; + createDate +
                 &quot;, lastUpdateDate=&quot; + lastUpdateDate +
                 &quot;, authorId=&quot; + authorId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L81" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+
+<span class="fc" id="L83">        NewsModel that = (NewsModel) o;</span>
+
+<span class="pc bpc" id="L85" title="1 of 4 branches missed.">        return id != null &amp;&amp; id.equals(that.id);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        return id != null ? id.hashCode() : 0;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

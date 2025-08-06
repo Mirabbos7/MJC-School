@@ -2,13 +2,15 @@ package com.mjc.school;
 
 import com.mjc.school.controller.NewsController;
 import com.mjc.school.service.dto.NewsRequestDto;
+import com.mjc.school.service.impl.NewsService;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         int operationNumber = 1;
-        NewsController controller = new NewsController();
+        NewsService newsService = new NewsService();
+        NewsController controller = new NewsController(newsService);
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("""

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.repository.impl.NewsRepositoryTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-08-06T16:57:04" hostname="MIRAKING" time="0.087">
+  <properties/>
+  <testcase name="readAllTest()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.071"/>
+  <testcase name="delete()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.002"/>
+  <testcase name="ifIdExistReturnFalse()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.001"/>
+  <testcase name="create_shouldAddNewsToList()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.005"/>
+  <testcase name="readById()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.003"/>
+  <testcase name="update()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.001"/>
+  <testcase name="ifIdExistReturnTrue()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

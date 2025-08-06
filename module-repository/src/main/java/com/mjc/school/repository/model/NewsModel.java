@@ -3,8 +3,6 @@ package com.mjc.school.repository.model;
 import java.time.LocalDateTime;
 
 public class NewsModel {
-    private static long autoId = 1;
-
     private final Long id;
     private String title;
     private String content;
@@ -12,8 +10,8 @@ public class NewsModel {
     private LocalDateTime lastUpdateDate;
     private Long authorId;
 
-    public NewsModel(String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, Long authorId) {
-        this.id = autoId++;
+    public NewsModel(Long id, String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, Long authorId) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.createDate = createDate;
@@ -21,7 +19,7 @@ public class NewsModel {
         this.authorId = authorId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -57,23 +55,38 @@ public class NewsModel {
         this.lastUpdateDate = lastUpdateDate;
     }
 
-    public long getAuthorId() {
+    public Long getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(long authorId) {
+    public void setAuthorId(Long authorId) {
         this.authorId = authorId;
     }
 
     @Override
     public String toString() {
-        return "Author{" +
+        return "NewsModel{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", content.txt='" + content + '\'' +
+                ", content='" + content + '\'' +
                 ", createDate=" + createDate +
                 ", lastUpdateDate=" + lastUpdateDate +
                 ", authorId=" + authorId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        NewsModel that = (NewsModel) o;
+
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }

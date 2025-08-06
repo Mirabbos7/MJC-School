@@ -9,9 +9,10 @@ import java.util.List;
 
 public class NewsController {
 
-    private final NewsService newsService = new NewsService();
+    private final NewsService newsService;
 
-    public NewsController() {
+    public NewsController(NewsService newsService) {
+        this.newsService = newsService;
     }
 
     public List<NewsResponseDto> readAll() {
