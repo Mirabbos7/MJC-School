@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.service.mapper.NewsMapperTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-08-06T20:41:39" hostname="MIRAKING" time="0.318">
+  <properties/>
+  <testcase name="shouldMapNewsListToDtoList()" classname="com.mjc.school.service.mapper.NewsMapperTests" time="0.293"/>
+  <testcase name="shouldMapDtoToNewsModelIgnoringDates()" classname="com.mjc.school.service.mapper.NewsMapperTests" time="0.021"/>
+  <testcase name="shouldMapNewsModelToDto()" classname="com.mjc.school.service.mapper.NewsMapperTests" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
