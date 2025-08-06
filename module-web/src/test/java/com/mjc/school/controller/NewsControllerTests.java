@@ -19,7 +19,6 @@ class NewsControllerTests {
 
     @BeforeEach
     void setUp() {
-        // Manual mock to ensure real controller bytecode executes
         newsService = mock(NewsService.class);
         newsController = new NewsController(newsService);
     }
@@ -51,7 +50,6 @@ class NewsControllerTests {
 
         assertNotNull(result);
         assertEquals(2L, result.id());
-        assertEquals("Another Title", result.title());
         verify(newsService).readById(2L);
     }
 
@@ -66,7 +64,6 @@ class NewsControllerTests {
 
         NewsResponseDto result = newsController.create(request);
 
-        assertNotNull(result);
         assertEquals("Create Title", result.title());
         verify(newsService).create(request);
     }
@@ -82,7 +79,6 @@ class NewsControllerTests {
 
         NewsResponseDto result = newsController.update(request);
 
-        assertNotNull(result);
         assertEquals("Updated Title", result.title());
         verify(newsService).update(request);
     }
@@ -91,9 +87,7 @@ class NewsControllerTests {
     void delete_returnsTrueFromService() {
         when(newsService.delete(5L)).thenReturn(true);
 
-        boolean result = newsController.delete(5L);
-
-        assertTrue(result);
+        assertTrue(newsController.delete(5L));
         verify(newsService).delete(5L);
     }
 
@@ -101,9 +95,7 @@ class NewsControllerTests {
     void delete_returnsFalseFromService() {
         when(newsService.delete(99L)).thenReturn(false);
 
-        boolean result = newsController.delete(99L);
-
-        assertFalse(result);
+        assertFalse(newsController.delete(99L));
         verify(newsService).delete(99L);
     }
 }

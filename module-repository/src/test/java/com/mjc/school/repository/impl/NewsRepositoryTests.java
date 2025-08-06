@@ -19,88 +19,71 @@ public class NewsRepositoryTests {
     }
 
     @Test
-    void readAllTest() {
+    void readAll_returnsNonEmptyList() {
         List<NewsModel> newsModels = newsRepository.readAll();
-
         assertNotNull(newsModels);
         assertFalse(newsModels.isEmpty());
     }
 
     @Test
-    void readById() {
-        NewsModel news = NewsRepository.getInstance().readAll().get(0);
-        NewsModel found = NewsRepository.getInstance().readBy(news.getId());
-
+    void readBy_existingId_returnsNews() {
+        NewsModel existing = newsRepository.readAll().get(0);
+        NewsModel found = newsRepository.readBy(existing.getId());
         assertNotNull(found);
-        assertEquals(news.getId(), found.getId());
+        assertEquals(existing.getId(), found.getId());
     }
 
     @Test
-    void readById_returnsNullWhenNotFound() {
-        NewsModel found = NewsRepository.getInstance().readBy(-999L);
-
-        assertNull(found);
+    void readBy_nonExistingId_returnsNull() {
+        assertNull(newsRepository.readBy(-999L));
     }
 
     @Test
-    void create_shouldAddNewsToList() {
-        NewsRepository repo = new NewsRepository();
-        int sizeBefore = repo.readAll().size();
+    void create_addsNewsToList() {
+        int sizeBefore = newsRepository.readAll().size();
+        NewsModel newNews = new NewsModel(null, "Title", "Content", null, null, 1L);
 
-        NewsModel newNews = new NewsModel(
-                null, "Title", "Content", null, null, 1L
-        );
+        NewsModel created = newsRepository.create(newNews);
 
-        NewsModel created = repo.create(newNews);
-        int sizeAfter = repo.readAll().size();
-
-        assertEquals(sizeBefore + 1, sizeAfter);
-        assertTrue(repo.readAll().contains(created));
-    }
-
-
-    @Test
-    void update() {
-        NewsModel newsModel = new NewsModel(10L, "title", "content", LocalDateTime.now(), LocalDateTime.now(), 1L);
-        newsRepository.update(newsModel);
-        assertTrue(newsRepository.readAll().contains(newsModel));
+        assertNotNull(created.getId());
+        assertEquals(sizeBefore + 1, newsRepository.readAll().size());
     }
 
     @Test
-    void update_throwsExceptionWhenNewsNotFound() {
-        NewsModel nonExistingNews = new NewsModel(
-                999L,
-                "Non Existing",
-                "No Content",
-                LocalDateTime.now(),
-                LocalDateTime.now(),
-                1L
-        );
+    void update_existingNews_updatesIt() {
+        NewsModel existing = newsRepository.readAll().get(0);
+        existing.setTitle("Updated Title");
 
-        assertThrows(NullPointerException.class, () -> newsRepository.update(nonExistingNews));
+        NewsModel updated = newsRepository.update(existing);
+
+        assertEquals("Updated Title", updated.getTitle());
     }
 
     @Test
-    void delete() {
-        int sizeBefore = NewsRepository.getInstance().readAll().size();
-
-        NewsRepository.getInstance().delete(1L);
-
-        int sizeAfter = NewsRepository.getInstance().readAll().size();
-
-        assertEquals(sizeBefore, sizeAfter + 1);
+    void update_nonExistingNews_throwsException() {
+        NewsModel nonExisting = new NewsModel(999L, "Title", "Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
+        assertThrows(NullPointerException.class, () -> newsRepository.update(nonExisting));
     }
 
     @Test
-    void ifIdExistReturnTrue() {
-        NewsModel newsModel = NewsRepository.getInstance().readAll().get(0);
-        assertTrue(newsRepository.ifIdExist(newsModel.getId()));
+    void delete_existingNews_removesIt() {
+        NewsModel first = newsRepository.readAll().get(0);
+        int sizeBefore = newsRepository.readAll().size();
+
+        boolean deleted = newsRepository.delete(first.getId());
+
+        assertTrue(deleted);
+        assertEquals(sizeBefore - 1, newsRepository.readAll().size());
     }
 
     @Test
-    void ifIdExistReturnFalse() {
+    void ifIdExist_returnsTrueForExistingId() {
+        NewsModel existing = newsRepository.readAll().get(0);
+        assertTrue(newsRepository.ifIdExist(existing.getId()));
+    }
 
+    @Test
+    void ifIdExist_returnsFalseForNonExistingId() {
         assertFalse(newsRepository.ifIdExist(9999999L));
-
     }
 }
