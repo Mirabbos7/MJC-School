@@ -1,18 +1,33 @@
 package com.mjc.school.repository.util;
 
 import com.mjc.school.repository.model.AuthorModel;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Field;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AuthorModelUtilsTest {
+class AuthorModelUtilsTest {
+
+    private Field autoIdField;
+
+    @BeforeEach
+    void setUp() throws Exception {
+        autoIdField = AuthorModel.class.getDeclaredField("autoId");
+        autoIdField.setAccessible(true);
+    }
 
     @Test
-    void testResetAutoId() throws Exception {
+    void resetAutoId_setsStaticFieldToOne() throws Exception {
+        // Arrange: set the static field to a random value first
+        autoIdField.set(null, 50L);
+
+        // Act
         AuthorModelUtils.resetAutoId();
 
-        AuthorModel author3 = new AuthorModel("Charlie");
-
-        assertEquals(1L, author3.getId());
+        // Assert: check that it is now reset to 1L
+        Object value = autoIdField.get(null);
+        assertEquals(1L, value);
     }
 }
