@@ -13,47 +13,51 @@ import java.util.List;
 
 public class NewsService {
 
-<span class="fc" id="L16">    private NewsRepository newsRepository = NewsRepository.getInstance();</span>
+<span class="pc" id="L16">    private NewsRepository newsRepository = NewsRepository.getInstance();</span>
 
-<span class="fc" id="L18">    private Validator newValidator = new Validator();</span>
+<span class="pc" id="L18">    private Validator newValidator = new Validator();</span>
 
-<span class="fc" id="L20">    public NewsService() {</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L20">    public NewsService(NewsRepository newsRepository){</span>
+<span class="fc" id="L21">        this.newsRepository = newsRepository;</span>
+<span class="fc" id="L22">    }</span>
+
+<span class="nc" id="L24">    public NewsService() {</span>
+<span class="nc" id="L25">    }</span>
 
     public List&lt;NewsResponseDto&gt; readAll() {
-<span class="fc" id="L24">        return NewsMapper.INSTANCE.newsListToDtoList(newsRepository.readAll());</span>
+<span class="fc" id="L28">        return NewsMapper.INSTANCE.newsListToDtoList(newsRepository.readAll());</span>
     }
 
     public NewsResponseDto readById(Long id) {
-<span class="fc" id="L28">        Validator.validateNewsId(id);</span>
-<span class="fc" id="L29">        Validator.validateNewsId(id);</span>
-<span class="fc" id="L30">        return NewsMapper.INSTANCE.newsToDto(newsRepository.readBy(id));</span>
+<span class="fc" id="L32">        Validator.validateNewsId(id);</span>
+<span class="fc" id="L33">        Validator.validateNewsId(id);</span>
+<span class="fc" id="L34">        return NewsMapper.INSTANCE.newsToDto(newsRepository.readBy(id));</span>
     }
 
     public NewsResponseDto create(NewsRequestDto news) {
-<span class="fc" id="L34">        Validator.validateDtoRequest(news);</span>
-<span class="fc" id="L35">        NewsModel model = NewsMapper.INSTANCE.dtoToNews(news);</span>
-<span class="fc" id="L36">        model.setCreateDate(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));</span>
-<span class="fc" id="L37">        model.setLastUpdateDate(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));</span>
-<span class="fc" id="L38">        return NewsMapper.INSTANCE.newsToDto(newsRepository.create(model));</span>
+<span class="fc" id="L38">        Validator.validateDtoRequest(news);</span>
+<span class="fc" id="L39">        NewsModel model = NewsMapper.INSTANCE.dtoToNews(news);</span>
+<span class="fc" id="L40">        model.setCreateDate(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));</span>
+<span class="fc" id="L41">        model.setLastUpdateDate(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));</span>
+<span class="fc" id="L42">        return NewsMapper.INSTANCE.newsToDto(newsRepository.create(model));</span>
     }
 
     public NewsResponseDto update(NewsRequestDto news) {
-<span class="fc" id="L42">        Validator.validateDtoRequest(news);</span>
-<span class="fc" id="L43">        NewsModel model = NewsMapper.INSTANCE.dtoToNews(news);</span>
-<span class="fc" id="L44">        model.setLastUpdateDate(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));</span>
-<span class="fc" id="L45">        return NewsMapper.INSTANCE.newsToDto(newsRepository.update(model));</span>
+<span class="fc" id="L46">        Validator.validateDtoRequest(news);</span>
+<span class="fc" id="L47">        NewsModel model = NewsMapper.INSTANCE.dtoToNews(news);</span>
+<span class="fc" id="L48">        model.setLastUpdateDate(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));</span>
+<span class="fc" id="L49">        return NewsMapper.INSTANCE.newsToDto(newsRepository.update(model));</span>
     }
 
     public Boolean delete(Long id) {
-<span class="fc" id="L49">        validateNewsExistence(id);</span>
-<span class="fc" id="L50">        return newsRepository.delete(id);</span>
+<span class="fc" id="L53">        validateNewsExistence(id);</span>
+<span class="fc" id="L54">        return newsRepository.delete(id);</span>
     }
 
     private void validateNewsExistence(long id) {
-<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if (!newsRepository.ifIdExist(id)) {</span>
-<span class="nc" id="L55">            throw new RuntimeException(&quot;News not exists with id: &quot; + id);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (!newsRepository.ifIdExist(id)) {</span>
+<span class="fc" id="L59">            throw new RuntimeException(&quot;News not exists with id: &quot; + id);</span>
         }
-<span class="fc" id="L57">    }</span>
+<span class="fc" id="L61">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

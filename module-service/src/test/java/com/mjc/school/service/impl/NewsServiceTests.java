@@ -5,7 +5,6 @@ import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.dto.NewsRequestDto;
 import com.mjc.school.service.dto.NewsResponseDto;
 import com.mjc.school.service.mapper.NewsMapper;
-import com.mjc.school.service.validator.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,88 +24,96 @@ class NewsServiceTests {
     @Mock
     private NewsRepository newsRepository;
 
-    @InjectMocks
+    private NewsMapper newsMapper = NewsMapper.INSTANCE;
+
     private NewsService newsService;
 
-    private NewsModel sampleModel;
-    private NewsRequestDto sampleRequest;
-    private NewsResponseDto sampleResponse;
-
     @BeforeEach
-    void setUp() {
-        sampleModel = new NewsModel(
-                1L,
-                "Test Title",
-                "Test Content",
-                LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS),
-                LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS),
-                10L
+    void setup() {
+        newsService = new NewsService(newsRepository);
+    }
+
+    @Test
+    void successfully_created() {
+        NewsRequestDto dto = new NewsRequestDto("Title", "content", 1L);
+        NewsModel savedModel = new NewsModel(1L, "Title", "content", LocalDateTime.now(), LocalDateTime.now(), 1L);
+
+        when(newsRepository.create(any(NewsModel.class))).thenReturn(savedModel);
+
+        NewsResponseDto result = newsService.create(dto);
+
+        assertNotNull(result);
+        assertEquals(1L, result.id());
+    }
+
+    @Test
+    void readById_shouldReturnNewsResponseDto_whenNewsExists() {
+        Long id = 1L;
+        NewsModel newsModel = new NewsModel(id, "Title", "Content", LocalDateTime.now(), LocalDateTime.now(), 1L);
+
+        when(newsRepository.readBy(id)).thenReturn(newsModel);
+
+        NewsResponseDto response = newsService.readById(id);
+
+        assertNotNull(response);
+        assertEquals(id, response.id());
+        assertEquals("Title", response.title());
+    }
+
+    @Test
+    void readAll_shouldReturnListOfNewsResponseDto() {
+        List<NewsModel> newsModels = List.of(
+                new NewsModel(1L, "Title1", "Content1", LocalDateTime.now(), LocalDateTime.now(), 1L),
+                new NewsModel(2L, "Title2", "Content2", LocalDateTime.now(), LocalDateTime.now(), 2L)
         );
 
-        sampleRequest = new NewsRequestDto("Test Title", "Test Content", 10L);
-        sampleResponse = NewsMapper.INSTANCE.newsToDto(sampleModel);
+        when(newsRepository.readAll()).thenReturn(newsModels);
+
+        List<NewsResponseDto> responses = newsService.readAll();
+
+        assertNotNull(responses);
+        assertEquals(2, responses.size());
+        assertEquals("Title1", responses.get(0).title());
+        assertEquals("Title2", responses.get(1).title());
     }
 
     @Test
-    void testReadAll() {
-        when(newsRepository.readAll()).thenReturn(List.of(sampleModel));
+    void update_shouldReturnUpdatedNewsResponseDto() {
+        NewsRequestDto request = new NewsRequestDto("Updated Title", "Updated Content", 1L);
+        NewsModel toUpdate = NewsMapper.INSTANCE.dtoToNews(request);
+        toUpdate.setLastUpdateDate(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 
-        List<NewsResponseDto> result = newsService.readAll();
+        NewsModel updatedModel = new NewsModel(1L, toUpdate.getTitle(), toUpdate.getContent(),
+                LocalDateTime.now(), toUpdate.getLastUpdateDate(), toUpdate.getAuthorId());
 
-        assertEquals(1, result.size());
-        assertEquals(sampleModel.getTitle(), result.get(0).title());
+        when(newsRepository.update(any(NewsModel.class))).thenReturn(updatedModel);
+
+        NewsResponseDto response = newsService.update(request);
+
+        assertNotNull(response);
+        assertEquals("Updated Title", response.title());
     }
 
     @Test
-    void testReadById() {
-        long id = 1L;
-        when(newsRepository.readBy(id)).thenReturn(sampleModel);
-
-        NewsResponseDto result = newsService.readById(id);
-
-        assertNotNull(result);
-        assertEquals(sampleModel.getTitle(), result.title());
-        verify(newsRepository).readBy(id);
-    }
-
-
-    @Test
-    void testCreate() {
-        when(newsRepository.create(any())).thenReturn(sampleModel);
-
-        NewsResponseDto result = newsService.create(sampleRequest);
-
-        assertNotNull(result);
-        assertEquals(sampleRequest.title(), result.title());
-        verify(newsRepository).create(any());
-    }
-
-
-    @Test
-    void testUpdate() {
-        try (MockedStatic<Validator> mockedValidator = Mockito.mockStatic(Validator.class)) {
-            when(newsRepository.update(any())).thenReturn(sampleModel);
-
-            NewsResponseDto result = newsService.update(sampleRequest);
-
-            assertNotNull(result);
-            assertEquals(sampleRequest.title(), result.title());
-            verify(newsRepository).update(any());
-            mockedValidator.verify(() -> Validator.validateDtoRequest(sampleRequest));
-        }
-    }
-
-
-    @Test
-    void testDelete() {
-        long id = 1L;
+    void delete_shouldReturnTrue_whenNewsExists() {
+        Long id = 1L;
         when(newsRepository.ifIdExist(id)).thenReturn(true);
         when(newsRepository.delete(id)).thenReturn(true);
 
-        boolean result = newsService.delete(id);
+        Boolean result = newsService.delete(id);
 
         assertTrue(result);
-        verify(newsRepository).delete(id);
-        verify(newsRepository).ifIdExist(id);
+    }
+
+    @Test
+    void delete_shouldThrowException_whenNewsDoesNotExist() {
+        Long id = 99L;
+        when(newsRepository.ifIdExist(id)).thenReturn(false);
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            newsService.delete(id);
+        });
+
+        assertEquals("News not exists with id: 99", exception.getMessage());
     }
 }

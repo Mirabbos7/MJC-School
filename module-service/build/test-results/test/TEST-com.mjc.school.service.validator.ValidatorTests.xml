@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.service.validator.ValidatorTests" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-08-06T22:22:54" hostname="MIRAKING" time="0.03">
+<testsuite name="com.mjc.school.service.validator.ValidatorTests" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-08-07T14:05:20" hostname="MIRAKING" time="0.026">
   <properties/>
-  <testcase name="nullTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.007"/>
-  <testcase name="longTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
-  <testcase name="validateAuthorId_invalidId_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
+  <testcase name="nullTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.008"/>
+  <testcase name="longTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
+  <testcase name="validateAuthorId_invalidId_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <testcase name="validateNewsId_validateNewsId_validId_doesNotThrow()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.003"/>
-  <testcase name="invalidAuthor_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
+  <testcase name="invalidAuthor_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <testcase name="longContent_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <testcase name="shortContent_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <testcase name="validId_doesNotThrow()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <testcase name="shortTitle_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
-  <testcase name="invalidId_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.002"/>
+  <testcase name="invalidId_throwsException()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <testcase name="validDto_doesNotThrow()" classname="com.mjc.school.service.validator.ValidatorTests" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.service.impl.NewsServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-08-06T22:22:50" hostname="MIRAKING" time="3.14">
+<testsuite name="com.mjc.school.service.impl.NewsServiceTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-08-07T14:05:17" hostname="MIRAKING" time="2.427">
   <properties/>
-  <testcase name="testReadById()" classname="com.mjc.school.service.impl.NewsServiceTests" time="3.068"/>
-  <testcase name="testReadAll()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.008"/>
-  <testcase name="testCreate()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.01"/>
-  <testcase name="testDelete()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.008"/>
-  <testcase name="testUpdate()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.042"/>
+  <testcase name="readAll_shouldReturnListOfNewsResponseDto()" classname="com.mjc.school.service.impl.NewsServiceTests" time="2.387"/>
+  <testcase name="update_shouldReturnUpdatedNewsResponseDto()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.013"/>
+  <testcase name="delete_shouldThrowException_whenNewsDoesNotExist()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.009"/>
+  <testcase name="successfully_created()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.003"/>
+  <testcase name="readById_shouldReturnNewsResponseDto_whenNewsExists()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.003"/>
+  <testcase name="delete_shouldReturnTrue_whenNewsExists()" classname="com.mjc.school.service.impl.NewsServiceTests" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

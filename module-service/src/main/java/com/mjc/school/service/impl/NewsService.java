@@ -17,6 +17,10 @@ public class NewsService {
 
     private Validator newValidator = new Validator();
 
+    public NewsService(NewsRepository newsRepository){
+        this.newsRepository = newsRepository;
+    }
+
     public NewsService() {
     }
 
