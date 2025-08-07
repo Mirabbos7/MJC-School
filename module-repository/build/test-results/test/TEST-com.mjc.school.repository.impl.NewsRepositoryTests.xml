@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.repository.impl.NewsRepositoryTests" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-08-06T23:57:54" hostname="MIRAKING" time="0.067">
+<testsuite name="com.mjc.school.repository.impl.NewsRepositoryTests" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-08-07T14:56:41" hostname="MIRAKING" time="0.054">
   <properties/>
-  <testcase name="update_nonExistingNews_throwsException()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.05"/>
-  <testcase name="readAll_returnsNonEmptyList()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.002"/>
-  <testcase name="ifIdExist_returnsTrueForExistingId()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.001"/>
-  <testcase name="create_addsNewsToList()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.003"/>
-  <testcase name="delete_existingNews_removesIt()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.001"/>
-  <testcase name="ifIdExist_returnsFalseForNonExistingId()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.001"/>
+  <testcase name="update_nonExistingNews_throwsException()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.04"/>
+  <testcase name="readAll_returnsNonEmptyList()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.003"/>
+  <testcase name="ifIdExist_returnsTrueForExistingId()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.002"/>
+  <testcase name="create_addsNewsToList()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.002"/>
+  <testcase name="delete_existingNews_removesIt()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.0"/>
+  <testcase name="ifIdExist_returnsFalseForNonExistingId()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.0"/>
   <testcase name="readBy_nonExistingId_returnsNull()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.002"/>
   <testcase name="readBy_existingId_returnsNews()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.002"/>
   <testcase name="update_existingNews_updatesIt()" classname="com.mjc.school.repository.impl.NewsRepositoryTests" time="0.001"/>

@@ -17,6 +17,11 @@ pipeline {
             steps {
                 bat 'gradle clean build'
             }
+            post{
+                success{
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
+            }
         }
 
         stage('SonarQube Analysis') {
@@ -52,14 +57,7 @@ pipeline {
 
         stage('Deploy to Tomcat') {
               steps {
-                  withCredentials([usernamePassword(credentialsId: 'tomcat-cred', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASS')]) {
-                        bat """
-                        curl -v --upload-file build\\libs\\Mjc-school.war ^
-                        --user %TOMCAT_USER%:%TOMCAT_PASS% ^
-                        "http://localhost:8081/manager/text/deploy?path=/Mjc-school&update=true"
-                        """
-                    }
-                }
+                  deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat-cred', path: '', url: 'http://localhost:8081/')], contextPath: null, war: '**/*.war'
               }
     }
 

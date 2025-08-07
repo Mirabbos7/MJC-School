@@ -6,9 +6,9 @@ import java.lang.reflect.Field;
 
 <span class="nc" id="L7">public class AuthorModelUtils {</span>
     public static void resetAutoId() throws Exception {
-<span class="nc" id="L9">        Field autoIdField = AuthorModel.class.getDeclaredField(&quot;autoId&quot;);</span>
-<span class="nc" id="L10">        autoIdField.setAccessible(true);</span>
-<span class="nc" id="L11">        autoIdField.set(null, 1L);</span>
-<span class="nc" id="L12">    }</span>
+<span class="fc" id="L9">        Field autoIdField = AuthorModel.class.getDeclaredField(&quot;autoId&quot;);</span>
+<span class="fc" id="L10">        autoIdField.setAccessible(true);</span>
+<span class="fc" id="L11">        autoIdField.set(null, 1L);</span>
+<span class="fc" id="L12">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
