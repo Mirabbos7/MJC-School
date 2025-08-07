@@ -17,9 +17,9 @@ pipeline {
             steps {
                 bat 'gradle clean build'
             }
-            post{
-                success{
-                    archiveArtifacts artifacts: '**/target/*.war'
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/build/libs/*.war'
                 }
             }
         }
@@ -39,7 +39,6 @@ pipeline {
             }
         }
 
-
         stage('Test & Coverage') {
             steps {
                 bat 'gradle test jacocoTestReport'
@@ -56,9 +55,17 @@ pipeline {
         }
 
         stage('Deploy to Tomcat') {
-              steps {
-                  deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat-cred', path: '', url: 'http://localhost:8081/')], contextPath: null, war: '**/*.war'
-              }
+            steps {
+                deploy adapters: [
+                    tomcat9(
+                        alternativeDeploymentContext: '',
+                        credentialsId: 'tomcat-cred',
+                        path: '',
+                        url: 'http://localhost:8081/'
+                    )
+                ], contextPath: null, war: '**/*.war'
+            }
+        }
     }
 
     post {
