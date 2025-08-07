@@ -19,7 +19,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts artifacts: '**/build/libs/*.war'
+                    archiveArtifacts artifacts: 'build/libs/stage3-module1-task.war'
                 }
             }
         }
@@ -63,7 +63,7 @@ pipeline {
                         path: '',
                         url: 'http://localhost:8081/'
                     )
-                ], contextPath: null, war: '**/*.war'
+                ], contextPath: null, war: 'build/libs/stage3-module1-task.war'
             }
         }
     }
