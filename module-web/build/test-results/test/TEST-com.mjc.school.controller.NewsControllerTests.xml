@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.controller.NewsControllerTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-08-07T14:56:47" hostname="MIRAKING" time="1.146">
+<testsuite name="com.mjc.school.controller.NewsControllerTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-08-07T15:21:43" hostname="MIRAKING" time="1.196">
   <properties/>
-  <testcase name="create_callsServiceAndReturnsDto()" classname="com.mjc.school.controller.NewsControllerTests" time="1.124"/>
-  <testcase name="update_callsServiceAndReturnsDto()" classname="com.mjc.school.controller.NewsControllerTests" time="0.003"/>
-  <testcase name="delete_returnsTrueFromService()" classname="com.mjc.school.controller.NewsControllerTests" time="0.004"/>
+  <testcase name="create_callsServiceAndReturnsDto()" classname="com.mjc.school.controller.NewsControllerTests" time="1.17"/>
+  <testcase name="update_callsServiceAndReturnsDto()" classname="com.mjc.school.controller.NewsControllerTests" time="0.004"/>
+  <testcase name="delete_returnsTrueFromService()" classname="com.mjc.school.controller.NewsControllerTests" time="0.005"/>
   <testcase name="delete_returnsFalseFromService()" classname="com.mjc.school.controller.NewsControllerTests" time="0.003"/>
-  <testcase name="readById_returnsDtoFromService()" classname="com.mjc.school.controller.NewsControllerTests" time="0.003"/>
-  <testcase name="readAll_returnsListFromService()" classname="com.mjc.school.controller.NewsControllerTests" time="0.002"/>
+  <testcase name="readById_returnsDtoFromService()" classname="com.mjc.school.controller.NewsControllerTests" time="0.004"/>
+  <testcase name="readAll_returnsListFromService()" classname="com.mjc.school.controller.NewsControllerTests" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
