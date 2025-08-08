@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.service.impl.NewsServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-08T14:53:14" hostname="MIRAKING" time="1.361">
+  <properties/>
+  <testcase name="getNewsById_existing_shouldReturnDTO()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="1.361"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

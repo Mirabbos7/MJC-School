@@ -41,11 +41,12 @@ public class Validator implements Validate{
     }
 
     private boolean isValidISO8601Date(LocalDateTime date) {
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if (date == null) return false;</span>
         try {
-<span class="nc" id="L45">            DateTimeFormatter.ISO_DATE_TIME.format(date);</span>
-<span class="nc" id="L46">            return true;</span>
-<span class="nc" id="L47">        } catch (DateTimeException e) {</span>
-<span class="nc" id="L48">            return false;</span>
+<span class="nc" id="L46">            DateTimeFormatter.ISO_DATE_TIME.format(date);</span>
+<span class="nc" id="L47">            return true;</span>
+<span class="nc" id="L48">        } catch (DateTimeException e) {</span>
+<span class="nc" id="L49">            return false;</span>
         }
     }
 
