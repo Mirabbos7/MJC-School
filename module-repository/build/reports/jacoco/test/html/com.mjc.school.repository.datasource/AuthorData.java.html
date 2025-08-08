@@ -12,34 +12,34 @@ import java.util.List;
 public class AuthorData {
     private List&lt;String&gt; authorList;
     private List&lt;AuthorModel&gt; authors;
-<span class="nc" id="L15">    public AuthorData() {</span>
-<span class="nc" id="L16">        authorList = new ArrayList&lt;String&gt;();</span>
-<span class="nc" id="L17">        authors = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L18">        loadAuthors();</span>
-<span class="nc" id="L19">        authorsCreateList();</span>
-<span class="nc" id="L20">    }</span>
+<span class="fc" id="L15">    public AuthorData() {</span>
+<span class="fc" id="L16">        authorList = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L17">        authors = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L18">        loadAuthors();</span>
+<span class="fc" id="L19">        authorsCreateList();</span>
+<span class="fc" id="L20">    }</span>
     public List&lt;AuthorModel&gt; getAuthors() {
-<span class="nc" id="L22">        return authors;</span>
+<span class="fc" id="L22">        return authors;</span>
     }
     public List&lt;String&gt; getAuthorList() {
-<span class="nc" id="L25">        return authorList;</span>
+<span class="fc" id="L25">        return authorList;</span>
     }
     private void loadAuthors() {
-<span class="nc" id="L28">        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(&quot;author.txt&quot;);</span>
-<span class="nc" id="L29">             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {</span>
+<span class="fc" id="L28">        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(&quot;author.txt&quot;);</span>
+<span class="fc" id="L29">             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {</span>
             String line;
-<span class="nc bnc" id="L31" title="All 2 branches missed.">            while ((line = reader.readLine()) != null) {</span>
-<span class="nc" id="L32">                authorList.add(line);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L32">                authorList.add(line);</span>
             }
 <span class="nc" id="L34">        } catch (IOException e) {</span>
 <span class="nc" id="L35">            System.err.println(&quot;AuthorDataSource read error&quot; + e.getMessage());</span>
-<span class="nc" id="L36">        }</span>
-<span class="nc" id="L37">    }</span>
+<span class="fc" id="L36">        }</span>
+<span class="fc" id="L37">    }</span>
     private void authorsCreateList() {
-<span class="nc" id="L39">        long count = 0;</span>
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (String author : authorList) {</span>
-<span class="nc" id="L41">            authors.add(new AuthorModel(count++, author));</span>
-<span class="nc" id="L42">        }</span>
-<span class="nc" id="L43">    }</span>
+<span class="fc" id="L39">        long count = 0;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (String author : authorList) {</span>
+<span class="fc" id="L41">            authors.add(new AuthorModel(count++, author));</span>
+<span class="fc" id="L42">        }</span>
+<span class="fc" id="L43">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
