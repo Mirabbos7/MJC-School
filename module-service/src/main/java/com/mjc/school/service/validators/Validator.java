@@ -29,7 +29,7 @@ public class Validator implements Validate{
 
     @Override
     public boolean validate(NewsDTO newsDTO) throws TitleLException, ContentLException, DataFormatException {
-        if (newsDTO.getTitle().length() <=5 || newsDTO.getContent().length() > 30) {
+        if (newsDTO.getTitle().length() <=5 || newsDTO.getTitle().length() > 30) {
             throw new TitleLException("Title length must be between 5 and 30 characters");
         } else if (newsDTO.getContent().length() <=5 || newsDTO.getContent().length() > 255) {
             throw new ContentLException("Content length must be between 5 and 255 characters");

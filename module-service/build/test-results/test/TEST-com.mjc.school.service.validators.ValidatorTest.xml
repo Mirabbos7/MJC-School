@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.service.validators.ValidatorTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2025-08-08T15:19:22" hostname="MIRAKING" time="0.151">
+  <properties/>
+  <testcase name="validate_titleTooShort_shouldThrowTitleException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.07"/>
+  <testcase name="validate_contentAndDateBothInvalid_shouldThrowContentException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.003"/>
+  <testcase name="validate_nullLastUpdateDate_shouldThrowDataFormatException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.003"/>
+  <testcase name="validate_contentTooShort_shouldThrowContentException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.003"/>
+  <testcase name="validate_allFieldsInvalid_shouldThrowTitleException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.006"/>
+  <testcase name="validate_edgeCaseTitle6Characters_shouldReturnTrue()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.005"/>
+  <testcase name="validate_edgeCaseContent6Characters_shouldReturnTrue()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.001"/>
+  <testcase name="validate_titleExactly5Characters_shouldThrowTitleException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.003"/>
+  <testcase name="validate_contentTooLong_shouldThrowContentException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.002"/>
+  <testcase name="validate_contentExactly5Characters_shouldThrowContentException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.003"/>
+  <testcase name="validate_validNewsDTO_shouldReturnTrue()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.002"/>
+  <testcase name="validate_bothDatesNull_shouldThrowDataFormatException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.002"/>
+  <testcase name="validate_validDates_shouldReturnTrue()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.005"/>
+  <testcase name="validate_nullCreateDate_shouldThrowDataFormatException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.005"/>
+  <testcase name="validate_titleTooLong_shouldThrowTitleException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.005"/>
+  <testcase name="validate_titleAndContentBothInvalid_shouldThrowTitleException()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.004"/>
+  <testcase name="validate_titleExactly30Characters_shouldReturnTrue()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.003"/>
+  <testcase name="validate_singletonInstance_shouldReturnSameInstance()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.004"/>
+  <testcase name="validate_contentExactly255Characters_shouldReturnTrue()" classname="com.mjc.school.service.validators.ValidatorTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

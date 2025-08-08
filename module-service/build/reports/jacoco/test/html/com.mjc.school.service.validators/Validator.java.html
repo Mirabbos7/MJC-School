@@ -29,19 +29,19 @@ public class Validator implements Validate{
 
     @Override
     public boolean validate(NewsDTO newsDTO) throws TitleLException, ContentLException, DataFormatException {
-<span class="pc bpc" id="L32" title="2 of 4 branches missed.">        if (newsDTO.getTitle().length() &lt;=5 || newsDTO.getContent().length() &gt; 30) {</span>
-<span class="nc" id="L33">            throw new TitleLException(&quot;Title length must be between 5 and 30 characters&quot;);</span>
-<span class="pc bpc" id="L34" title="2 of 4 branches missed.">        } else if (newsDTO.getContent().length() &lt;=5 || newsDTO.getContent().length() &gt; 255) {</span>
-<span class="nc" id="L35">            throw new ContentLException(&quot;Content length must be between 5 and 255 characters&quot;);</span>
-<span class="pc bpc" id="L36" title="2 of 4 branches missed.">        } else if (!isValidISO8601Date(newsDTO.getCreateDate()) || !isValidISO8601Date(newsDTO.getLastUpdateDate())) {</span>
-<span class="nc" id="L37">            throw new DataFormatException(&quot;Dates must be in ISO 8601 format&quot;);</span>
+<span class="fc bfc" id="L32" title="All 4 branches covered.">        if (newsDTO.getTitle().length() &lt;=5 || newsDTO.getTitle().length() &gt; 30) {</span>
+<span class="fc" id="L33">            throw new TitleLException(&quot;Title length must be between 5 and 30 characters&quot;);</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">        } else if (newsDTO.getContent().length() &lt;=5 || newsDTO.getContent().length() &gt; 255) {</span>
+<span class="fc" id="L35">            throw new ContentLException(&quot;Content length must be between 5 and 255 characters&quot;);</span>
+<span class="fc bfc" id="L36" title="All 4 branches covered.">        } else if (!isValidISO8601Date(newsDTO.getCreateDate()) || !isValidISO8601Date(newsDTO.getLastUpdateDate())) {</span>
+<span class="fc" id="L37">            throw new DataFormatException(&quot;Dates must be in ISO 8601 format&quot;);</span>
         } else {
 <span class="fc" id="L39">            return true;</span>
         }
     }
 
     private boolean isValidISO8601Date(LocalDateTime date) {
-<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if (date == null) return false;</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (date == null) return false;</span>
         try {
 <span class="fc" id="L46">            DateTimeFormatter.ISO_DATE_TIME.format(date);</span>
 <span class="fc" id="L47">            return true;</span>
