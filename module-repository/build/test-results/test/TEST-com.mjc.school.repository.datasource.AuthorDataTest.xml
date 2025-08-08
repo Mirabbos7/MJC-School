@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.repository.datasource.AuthorDataTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-08-08T15:39:20" hostname="MIRAKING" time="0.035">
+<testsuite name="com.mjc.school.repository.datasource.AuthorDataTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:06:01" hostname="MIRAKING" time="0.032">
   <properties/>
-  <testcase name="testAuthorListSize()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.024"/>
+  <testcase name="testAuthorListSize()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.022"/>
   <testcase name="testFirstAuthorModelName()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.002"/>
   <testcase name="testAuthorsSize()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.001"/>
-  <testcase name="testFirstAuthorListEntry()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.0"/>
+  <testcase name="testFirstAuthorListEntry()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.001"/>
   <testcase name="testFirstAuthorModelId()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.001"/>
   <testcase name="testAuthorsListNotNull()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.001"/>
   <testcase name="testAuthorListNotNull()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.0"/>

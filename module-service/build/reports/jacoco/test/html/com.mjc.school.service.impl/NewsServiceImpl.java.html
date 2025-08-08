@@ -26,20 +26,20 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public List&lt;NewsDTO&gt; getAllNews() {
-<span class="fc" id="L29">        return dataSource.readAllNews()</span>
-<span class="fc" id="L30">                .stream()</span>
-<span class="fc" id="L31">                .map(NewsMapper.INSTANCE::newsToNewsDTO)</span>
-<span class="fc" id="L32">                .toList();</span>
+<span class="nc" id="L29">        return dataSource.readAllNews()</span>
+<span class="nc" id="L30">                .stream()</span>
+<span class="nc" id="L31">                .map(NewsMapper.INSTANCE::newsToNewsDTO)</span>
+<span class="nc" id="L32">                .toList();</span>
     }
 
     @Override
     public NewsDTO getNewsById(Long id) {
 <span class="fc" id="L37">        NewsModel news = dataSource.readById(id);</span>
 
-<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (news == null) {</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if (news == null) {</span>
 <span class="fc" id="L40">            throw new NullPointerException(&quot;News with id &quot; + id + &quot; not found&quot;);</span>
         }
-<span class="fc" id="L42">        return NewsMapper.INSTANCE.newsToNewsDTO(news);</span>
+<span class="nc" id="L42">        return NewsMapper.INSTANCE.newsToNewsDTO(news);</span>
     }
 
     @Override
@@ -47,15 +47,15 @@ public class NewsServiceImpl implements NewsService {
 <span class="fc" id="L47">        LocalDateTime date=LocalDateTime.parse(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));</span>
 
         try {
-<span class="fc" id="L50">            validator.validate(news);</span>
-<span class="fc" id="L51">            return NewsMapper.INSTANCE.newsToNewsDTO(dataSource.createNews(</span>
+<span class="nc" id="L50">            validator.validate(news);</span>
+<span class="nc" id="L51">            return NewsMapper.INSTANCE.newsToNewsDTO(dataSource.createNews(</span>
                     new NewsModel(
-<span class="fc" id="L53">                    getId(dataSource),</span>
-<span class="fc" id="L54">                    news.getTitle(),</span>
-<span class="fc" id="L55">                    news.getContent(),</span>
+<span class="nc" id="L53">                    getId(dataSource),</span>
+<span class="nc" id="L54">                    news.getTitle(),</span>
+<span class="nc" id="L55">                    news.getContent(),</span>
                     date,
                     date,
-<span class="fc" id="L58">                    news.getAuthorId()</span>
+<span class="nc" id="L58">                    news.getAuthorId()</span>
             )));
 <span class="fc" id="L60">        } catch(TitleLException | ContentLException | DataFormatException e) {</span>
 <span class="fc" id="L61">            System.out.println(e.getMessage());</span>
@@ -68,15 +68,15 @@ public class NewsServiceImpl implements NewsService {
 <span class="fc" id="L68">        LocalDateTime date=LocalDateTime.parse(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));</span>
 
         try {
-<span class="fc" id="L71">            validator.validate(newsDto);</span>
-<span class="fc" id="L72">            return NewsMapper.INSTANCE.newsToNewsDTO(dataSource.updateNews(</span>
+<span class="nc" id="L71">            validator.validate(newsDto);</span>
+<span class="nc" id="L72">            return NewsMapper.INSTANCE.newsToNewsDTO(dataSource.updateNews(</span>
                     new NewsModel(
                             id,
-<span class="fc" id="L75">                            newsDto.getTitle(),</span>
-<span class="fc" id="L76">                            newsDto.getContent(),</span>
-<span class="fc" id="L77">                            dataSource.readById(id).getCreateDate(),</span>
+<span class="nc" id="L75">                            newsDto.getTitle(),</span>
+<span class="nc" id="L76">                            newsDto.getContent(),</span>
+<span class="nc" id="L77">                            dataSource.readById(id).getCreateDate(),</span>
                             date,
-<span class="fc" id="L79">                            newsDto.getAuthorId()</span>
+<span class="nc" id="L79">                            newsDto.getAuthorId()</span>
                     )
             ));
 <span class="fc" id="L82">        } catch(TitleLException | ContentLException | DataFormatException e) {</span>
@@ -90,7 +90,7 @@ public class NewsServiceImpl implements NewsService {
 <span class="fc" id="L90">        return dataSource.deleteNewsById(id); //check</span>
     }
     private Long getId(DataSource dataSource) {
-<span class="fc" id="L93">        return (long) (dataSource.readAllNews().size() + 1);</span>
+<span class="nc" id="L93">        return (long) (dataSource.readAllNews().size() + 1);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

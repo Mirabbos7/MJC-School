@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.repository.impl.DataSourceImplTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-08-08T15:39:20" hostname="MIRAKING" time="1.113">
+<testsuite name="com.mjc.school.repository.impl.DataSourceImplTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:06:01" hostname="MIRAKING" time="1.137">
   <properties/>
-  <testcase name="testReadByIdFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="1.077"/>
+  <testcase name="testReadByIdFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="1.103"/>
   <testcase name="testReadByIdNotFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.005"/>
-  <testcase name="testDeleteNewsByIdNotFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.005"/>
+  <testcase name="testDeleteNewsByIdNotFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.003"/>
   <testcase name="testUpdateNewsNotFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.003"/>
-  <testcase name="testDeleteNewsByIdFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.003"/>
-  <testcase name="testReadAllAuthors()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.002"/>
+  <testcase name="testDeleteNewsByIdFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.004"/>
+  <testcase name="testReadAllAuthors()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.003"/>
   <testcase name="testCreateNews()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.006"/>
-  <testcase name="testUpdateNewsFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.002"/>
+  <testcase name="testUpdateNewsFound()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.003"/>
   <testcase name="testReadAllNews()" classname="com.mjc.school.repository.impl.DataSourceImplTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
