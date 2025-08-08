@@ -17,13 +17,13 @@ public class NewsDTO {
 
 <span class="fc" id="L18">    }</span>
 
-<span class="nc" id="L20">    public NewsDTO(String title, String content, Long authorId) {</span>
-<span class="nc" id="L21">        this.title = title;</span>
-<span class="nc" id="L22">        this.content = content;</span>
-<span class="nc" id="L23">        createDate = LocalDateTime.parse(ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));</span>
-<span class="nc" id="L24">        lastUpdateDate = createDate;</span>
-<span class="nc" id="L25">        this.authorId = authorId;</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L20">    public NewsDTO(String title, String content, Long authorId) {</span>
+<span class="fc" id="L21">        this.title = title;</span>
+<span class="fc" id="L22">        this.content = content;</span>
+<span class="fc" id="L23">        createDate = LocalDateTime.parse(ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));</span>
+<span class="fc" id="L24">        lastUpdateDate = createDate;</span>
+<span class="fc" id="L25">        this.authorId = authorId;</span>
+<span class="fc" id="L26">    }</span>
 
 <span class="nc" id="L28">    public NewsDTO(Long id, String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, Long authorId) {</span>
 <span class="nc" id="L29">        this.id = id;</span>
@@ -51,7 +51,7 @@ public class NewsDTO {
 <span class="fc" id="L51">    }</span>
 
     public String getContent() {
-<span class="nc" id="L54">        return content;</span>
+<span class="fc" id="L54">        return content;</span>
     }
 
     public void setContent(String content) {
@@ -59,7 +59,7 @@ public class NewsDTO {
 <span class="fc" id="L59">    }</span>
 
     public LocalDateTime getCreateDate() {
-<span class="nc" id="L62">        return createDate;</span>
+<span class="fc" id="L62">        return createDate;</span>
     }
 
     public void setCreateDate(LocalDateTime createDate) {
@@ -67,7 +67,7 @@ public class NewsDTO {
 <span class="fc" id="L67">    }</span>
 
     public LocalDateTime getLastUpdateDate() {
-<span class="nc" id="L70">        return lastUpdateDate;</span>
+<span class="fc" id="L70">        return lastUpdateDate;</span>
     }
 
     public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
@@ -75,7 +75,7 @@ public class NewsDTO {
 <span class="fc" id="L75">    }</span>
 
     public Long getAuthorId() {
-<span class="nc" id="L78">        return authorId;</span>
+<span class="fc" id="L78">        return authorId;</span>
     }
 
     public void setAuthorId(Long authorId) {
