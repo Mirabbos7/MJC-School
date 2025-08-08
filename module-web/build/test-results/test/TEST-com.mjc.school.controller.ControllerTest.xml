@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.controller.ControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-08-08T15:44:43" hostname="MIRAKING" time="1.364">
+  <properties/>
+  <testcase name="testGetAllNews_returnsSameList()" classname="com.mjc.school.controller.ControllerTest" time="1.345"/>
+  <testcase name="testCreateNews_returnsCreatedDto()" classname="com.mjc.school.controller.ControllerTest" time="0.011"/>
+  <testcase name="testUpdateNews_returnsUpdatedDto()" classname="com.mjc.school.controller.ControllerTest" time="0.002"/>
+  <testcase name="testDeleteNews_invokesServiceWithoutException()" classname="com.mjc.school.controller.ControllerTest" time="0.004"/>
+  <testcase name="testGetNewsById_returnsExpectedDto()" classname="com.mjc.school.controller.ControllerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

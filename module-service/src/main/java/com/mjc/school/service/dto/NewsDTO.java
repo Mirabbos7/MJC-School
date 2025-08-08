@@ -1,10 +1,17 @@
 package com.mjc.school.service.dto;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
+@Setter
+@Getter
+@NoArgsConstructor
 public class NewsDTO {
     private Long id;
     private String title;
@@ -12,10 +19,6 @@ public class NewsDTO {
     private LocalDateTime createDate;
     private LocalDateTime lastUpdateDate;
     private Long authorId;
-
-    public NewsDTO() {
-
-    }
 
     public NewsDTO(String title, String content, Long authorId) {
         this.title = title;
@@ -34,53 +37,6 @@ public class NewsDTO {
         this.authorId = authorId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public LocalDateTime getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
-    }
-
-    public LocalDateTime getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public Long getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
-    }
     @Override
     public String toString() {
         return "NewsDto{" +
