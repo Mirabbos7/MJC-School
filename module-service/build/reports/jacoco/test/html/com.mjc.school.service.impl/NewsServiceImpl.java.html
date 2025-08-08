@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NewsServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">module-service</a> &gt; <a href="index.source.html" class="el_package">com.mjc.school.service.impl</a> &gt; <span class="el_source">NewsServiceImpl.java</span></div><h1>NewsServiceImpl.java</h1><pre class="source lang-java linenums">package com.mjc.school.service.impl;
+
+import com.mjc.school.repository.DataSource;
+import com.mjc.school.repository.model.NewsModel;
+import com.mjc.school.service.NewsMapper;
+import com.mjc.school.service.NewsService;
+import com.mjc.school.service.dto.NewsDTO;
+import com.mjc.school.service.exceptions.ContentLException;
+import com.mjc.school.service.exceptions.DataFormatException;
+import com.mjc.school.service.exceptions.TitleLException;
+import com.mjc.school.service.validators.Validator;
+
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+public class NewsServiceImpl implements NewsService {
+    private final DataSource dataSource;
+    private final Validator validator;
+
+<span class="fc" id="L22">    public NewsServiceImpl(DataSource dataSource, Validator validator) {</span>
+<span class="fc" id="L23">        this.dataSource = dataSource;</span>
+<span class="fc" id="L24">        this.validator = validator;</span>
+<span class="fc" id="L25">    }</span>
+
+    @Override
+    public List&lt;NewsDTO&gt; getAllNews() {
+<span class="fc" id="L29">        return dataSource.readAllNews()</span>
+<span class="fc" id="L30">                .stream()</span>
+<span class="fc" id="L31">                .map(NewsMapper.INSTANCE::newsToNewsDTO)</span>
+<span class="fc" id="L32">                .toList();</span>
+    }
+
+    @Override
+    public NewsDTO getNewsById(Long id) {
+<span class="fc" id="L37">        NewsModel news = dataSource.readById(id);</span>
+
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (news == null) {</span>
+<span class="fc" id="L40">            throw new NullPointerException(&quot;News with id &quot; + id + &quot; not found&quot;);</span>
+        }
+<span class="fc" id="L42">        return NewsMapper.INSTANCE.newsToNewsDTO(news);</span>
+    }
+
+    @Override
+    public NewsDTO createNews(NewsDTO news) {
+<span class="fc" id="L47">        LocalDateTime date=LocalDateTime.parse(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));</span>
+
+        try {
+<span class="fc" id="L50">            validator.validate(news);</span>
+<span class="fc" id="L51">            return NewsMapper.INSTANCE.newsToNewsDTO(dataSource.createNews(</span>
+                    new NewsModel(
+<span class="fc" id="L53">                    getId(dataSource),</span>
+<span class="fc" id="L54">                    news.getTitle(),</span>
+<span class="fc" id="L55">                    news.getContent(),</span>
+                    date,
+                    date,
+<span class="fc" id="L58">                    news.getAuthorId()</span>
+            )));
+<span class="fc" id="L60">        } catch(TitleLException | ContentLException | DataFormatException e) {</span>
+<span class="fc" id="L61">            System.out.println(e.getMessage());</span>
+        }
+<span class="fc" id="L63">        return null;</span>
+    }
+
+    @Override
+    public NewsDTO updateNews(Long id, NewsDTO newsDto) {
+<span class="fc" id="L68">        LocalDateTime date=LocalDateTime.parse(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));</span>
+
+        try {
+<span class="fc" id="L71">            validator.validate(newsDto);</span>
+<span class="fc" id="L72">            return NewsMapper.INSTANCE.newsToNewsDTO(dataSource.updateNews(</span>
+                    new NewsModel(
+                            id,
+<span class="fc" id="L75">                            newsDto.getTitle(),</span>
+<span class="fc" id="L76">                            newsDto.getContent(),</span>
+<span class="fc" id="L77">                            dataSource.readById(id).getCreateDate(),</span>
+                            date,
+<span class="fc" id="L79">                            newsDto.getAuthorId()</span>
+                    )
+            ));
+<span class="fc" id="L82">        } catch(TitleLException | ContentLException | DataFormatException e) {</span>
+<span class="fc" id="L83">            System.out.println(e.getMessage());</span>
+        }
+<span class="fc" id="L85">        return null;</span>
+    }
+
+    @Override
+    public Boolean deleteNews(Long id) {
+<span class="fc" id="L90">        return dataSource.deleteNewsById(id); //check</span>
+    }
+    private Long getId(DataSource dataSource) {
+<span class="fc" id="L93">        return (long) (dataSource.readAllNews().size() + 1);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

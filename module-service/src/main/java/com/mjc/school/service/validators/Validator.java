@@ -41,6 +41,7 @@ public class Validator implements Validate{
     }
 
     private boolean isValidISO8601Date(LocalDateTime date) {
+        if (date == null) return false;
         try {
             DateTimeFormatter.ISO_DATE_TIME.format(date);
             return true;
