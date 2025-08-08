@@ -13,29 +13,29 @@ public class AuthorModel {
 <span class="fc" id="L13">        return id;</span>
     }
     public void setId(Long id) {
-<span class="nc" id="L16">        this.id = id;</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L16">        this.id = id;</span>
+<span class="fc" id="L17">    }</span>
     public String getName() {
 <span class="fc" id="L19">        return name;</span>
     }
     public void setName(String name) {
-<span class="nc" id="L22">        this.name = name;</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L22">        this.name = name;</span>
+<span class="fc" id="L23">    }</span>
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (this == o) return true;</span>
-<span class="nc bnc" id="L27" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
-<span class="nc" id="L28">        AuthorModel author = (AuthorModel) o;</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        return Objects.equals(id, author.id) &amp;&amp;</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">                Objects.equals(name, author.name);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L27" title="1 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L28">        AuthorModel author = (AuthorModel) o;</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        return Objects.equals(id, author.id) &amp;&amp;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">                Objects.equals(name, author.name);</span>
     }
     @Override
     public int hashCode() {
-<span class="nc" id="L34">        return Objects.hash(id, name);</span>
+<span class="fc" id="L34">        return Objects.hash(id, name);</span>
     }
     @Override
     public String toString() {
-<span class="nc" id="L38">        return &quot;AuthorModel{&quot; +</span>
+<span class="fc" id="L38">        return &quot;AuthorModel{&quot; +</span>
                 &quot;id=&quot; + id +
                 &quot;, name='&quot; + name + '\'' +
                 '}';

@@ -13,60 +13,60 @@ public class DataSourceImpl implements DataSource {
     private final NewsData newsDataSource;
     private final AuthorData authorDataSource;
 
-<span class="fc" id="L16">    public DataSourceImpl(AuthorData authorDataSource, NewsData newsDataSource) {</span>
-<span class="fc" id="L17">        this.authorDataSource = authorDataSource;</span>
-<span class="fc" id="L18">        this.newsDataSource = newsDataSource;</span>
-<span class="fc" id="L19">    }</span>
+<span class="nc" id="L16">    public DataSourceImpl(AuthorData authorDataSource, NewsData newsDataSource) {</span>
+<span class="nc" id="L17">        this.authorDataSource = authorDataSource;</span>
+<span class="nc" id="L18">        this.newsDataSource = newsDataSource;</span>
+<span class="nc" id="L19">    }</span>
 
     @Override
     public List&lt;AuthorModel&gt; readAllAuthors() {
-<span class="fc" id="L23">        return authorDataSource.getAuthors();</span>
+<span class="nc" id="L23">        return authorDataSource.getAuthors();</span>
     }
 
     @Override
     public List&lt;NewsModel&gt; readAllNews() {
-<span class="fc" id="L28">        return newsDataSource.getNews();</span>
+<span class="nc" id="L28">        return newsDataSource.getNews();</span>
     }
 
     @Override
     public NewsModel readById(Long id) {
-<span class="fc" id="L33">        return newsDataSource.getNews().stream()</span>
-<span class="fc" id="L34">                .filter(news -&gt; news.getId().equals(id))</span>
-<span class="fc" id="L35">                .findFirst().orElse(null);</span>
+<span class="nc" id="L33">        return newsDataSource.getNews().stream()</span>
+<span class="nc" id="L34">                .filter(news -&gt; news.getId().equals(id))</span>
+<span class="nc" id="L35">                .findFirst().orElse(null);</span>
     }
 
     @Override
     public NewsModel createNews(NewsModel news) {
-<span class="fc" id="L40">        news.setId(generateNewIdForNews());</span>
-<span class="fc" id="L41">        newsDataSource.getNews().add(news);</span>
-<span class="fc" id="L42">        return news;</span>
+<span class="nc" id="L40">        news.setId(generateNewIdForNews());</span>
+<span class="nc" id="L41">        newsDataSource.getNews().add(news);</span>
+<span class="nc" id="L42">        return news;</span>
     }
 
     private long generateNewIdForNews() {
-<span class="fc" id="L46">        return newsDataSource.getNews().stream()</span>
-<span class="fc" id="L47">                .mapToLong(NewsModel::getId)</span>
-<span class="fc" id="L48">                .max()</span>
-<span class="fc" id="L49">                .orElse(0L) + 1;</span>
+<span class="nc" id="L46">        return newsDataSource.getNews().stream()</span>
+<span class="nc" id="L47">                .mapToLong(NewsModel::getId)</span>
+<span class="nc" id="L48">                .max()</span>
+<span class="nc" id="L49">                .orElse(0L) + 1;</span>
     }
 
     @Override
     public NewsModel updateNews(NewsModel news) {
-<span class="fc" id="L54">        Optional&lt;NewsModel&gt; existingNews = newsDataSource.getNews().stream()</span>
-<span class="fc" id="L55">                .filter(news1 -&gt; news1.getId().equals(news.getId()))</span>
-<span class="fc" id="L56">                .findFirst();</span>
+<span class="nc" id="L54">        Optional&lt;NewsModel&gt; existingNews = newsDataSource.getNews().stream()</span>
+<span class="nc" id="L55">                .filter(news1 -&gt; news1.getId().equals(news.getId()))</span>
+<span class="nc" id="L56">                .findFirst();</span>
 
-<span class="fc" id="L58">        existingNews.ifPresent(news1 -&gt; {</span>
-<span class="fc" id="L59">            news1.setTitle(news.getTitle());</span>
-<span class="fc" id="L60">            news1.setContent(news.getContent());</span>
-<span class="fc" id="L61">            news1.setLastUpdateDate(news.getLastUpdateDate());</span>
-<span class="fc" id="L62">            news1.setAuthorId(news.getAuthorId());</span>
-<span class="fc" id="L63">        });</span>
-<span class="fc" id="L64">        return existingNews.orElse(null);</span>
+<span class="nc" id="L58">        existingNews.ifPresent(news1 -&gt; {</span>
+<span class="nc" id="L59">            news1.setTitle(news.getTitle());</span>
+<span class="nc" id="L60">            news1.setContent(news.getContent());</span>
+<span class="nc" id="L61">            news1.setLastUpdateDate(news.getLastUpdateDate());</span>
+<span class="nc" id="L62">            news1.setAuthorId(news.getAuthorId());</span>
+<span class="nc" id="L63">        });</span>
+<span class="nc" id="L64">        return existingNews.orElse(null);</span>
     }
 
     @Override
     public Boolean deleteNewsById(Long id) {
-<span class="fc" id="L69">        return newsDataSource.getNews().removeIf(news -&gt; news.getId().equals(id));</span>
+<span class="nc" id="L69">        return newsDataSource.getNews().removeIf(news -&gt; news.getId().equals(id));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
