@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class NewsModel {
-    //private static long idCounter = 1;
     private Long id;
     private String title;
     private String content;

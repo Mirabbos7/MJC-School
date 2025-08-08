@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsData {
-    private static final DateTimeFormatter ISO_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
     private List<String> newsList;
     private List<String> contentList;
     private List<NewsModel> news;
