@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - ValidatorTest</title>
+<title>Test results - NewsServiceImplTest</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>ValidatorTest</h1>
+<h1>NewsServiceImplTest</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/com.mjc.school.service.validators.html">com.mjc.school.service.validators</a> &gt; ValidatorTest</div>
+<a href="../packages/com.mjc.school.service.impl.html">com.mjc.school.service.impl</a> &gt; NewsServiceImplTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">19</div>
+<div class="counter">16</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.132s</div>
+<div class="counter">1.395s</div>
 <p>duration</p>
 </div>
 </td>
@@ -63,6 +63,9 @@
 <li>
 <a href="#tab0">Tests</a>
 </li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -75,101 +78,98 @@
 </tr>
 </thead>
 <tr>
-<td class="success">validate_allFieldsInvalid_shouldThrowTitleException()</td>
-<td class="success">0.006s</td>
+<td class="success">testCreateNews_success_returnsCorrectTitle()</td>
+<td class="success">0.021s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_bothDatesNull_shouldThrowDataFormatException()</td>
+<td class="success">testCreateNews_success_returnsNotNull()</td>
 <td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_contentAndDateBothInvalid_shouldThrowContentException()</td>
+<td class="success">testCreateNews_throwsContentLException_returnsNull()</td>
 <td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_contentExactly255Characters_shouldReturnTrue()</td>
+<td class="success">testCreateNews_throwsDataFormatException_returnsNull()</td>
 <td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_contentExactly5Characters_shouldThrowContentException()</td>
+<td class="success">testCreateNews_validationFails_returnsNull()</td>
 <td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_contentTooLong_shouldThrowContentException()</td>
+<td class="success">testDeleteNews_returnsFalse()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeleteNews_returnsTrue()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAllNews_returnsCorrectSize()</td>
 <td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_contentTooShort_shouldThrowContentException()</td>
-<td class="success">0.003s</td>
+<td class="success">testGetAllNews_returnsCorrectTitle()</td>
+<td class="success">1.315s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_edgeCaseContent6Characters_shouldReturnTrue()</td>
+<td class="success">testGetNewsById_returnsCorrectTitle()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_edgeCaseTitle6Characters_shouldReturnTrue()</td>
-<td class="success">0.005s</td>
+<td class="success">testGetNewsById_throwsIfNotFound()</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_nullCreateDate_shouldThrowDataFormatException()</td>
-<td class="success">0.005s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">validate_nullLastUpdateDate_shouldThrowDataFormatException()</td>
+<td class="success">testUpdateNews_success_returnsCorrectTitle()</td>
 <td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_singletonInstance_shouldReturnSameInstance()</td>
+<td class="success">testUpdateNews_success_returnsNotNull()</td>
 <td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_titleAndContentBothInvalid_shouldThrowTitleException()</td>
-<td class="success">0.004s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">validate_titleExactly30Characters_shouldReturnTrue()</td>
+<td class="success">testUpdateNews_throwsDataFormatException_returnsNull()</td>
 <td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_titleExactly5Characters_shouldThrowTitleException()</td>
+<td class="success">testUpdateNews_throwsTitleLException_returnsNull()</td>
 <td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">validate_titleTooLong_shouldThrowTitleException()</td>
-<td class="success">0.005s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">validate_titleTooShort_shouldThrowTitleException()</td>
-<td class="success">0.070s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">validate_validDates_shouldReturnTrue()</td>
-<td class="success">0.005s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">validate_validNewsDTO_shouldReturnTrue()</td>
-<td class="success">0.002s</td>
+<td class="success">testUpdateNews_validationFails_returnsNull()</td>
+<td class="success">0.017s</td>
 <td class="success">passed</td>
 </tr>
 </table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Error
+Format
+Bad
+Invalid content
+Invalid title
+Invalid format
+</pre>
+</span>
 </div>
 </div>
 <div id="footer">
@@ -179,7 +179,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.2</a> at 8 авг. 2025 г., 20:19:22</p>
+<a href="http://www.gradle.org">Gradle 7.2</a> at 8 авг. 2025 г., 20:28:24</p>
 </div>
 </div>
 </body>
