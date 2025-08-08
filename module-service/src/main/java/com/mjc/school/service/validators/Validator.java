@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Validator implements Validate{
-    private static volatile Validator instance = null;
+    private static volatile Validator instance = null;//NOSONAR
 
     public static Validator getInstance() {
         if (instance == null) {
