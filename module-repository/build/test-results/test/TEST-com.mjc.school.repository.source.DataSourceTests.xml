@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.repository.source.DataSourceTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-08-07T15:21:37" hostname="MIRAKING" time="1.168">
-  <properties/>
-  <testcase name="testReadAuthors()" classname="com.mjc.school.repository.source.DataSourceTests" time="1.158"/>
-  <testcase name="testReadNews()" classname="com.mjc.school.repository.source.DataSourceTests" time="0.01"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

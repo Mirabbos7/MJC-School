@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthorModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">module-repository</a> &gt; <a href="index.source.html" class="el_package">com.mjc.school.repository.model</a> &gt; <span class="el_source">AuthorModel.java</span></div><h1>AuthorModel.java</h1><pre class="source lang-java linenums">package com.mjc.school.repository.model;
 
+import java.util.Objects;
+
 public class AuthorModel {
-<span class="fc" id="L4">    private static Long autoId = 1L;</span>
-
-    private final Long id;
+    private Long id;
     private String name;
-
-<span class="fc" id="L9">    public AuthorModel(String name) {</span>
-<span class="fc" id="L10">        this.id = autoId++;</span>
-<span class="fc" id="L11">        this.name = name;</span>
-<span class="fc" id="L12">    }</span>
-
+<span class="fc" id="L8">    public AuthorModel(Long id, String name) {</span>
+<span class="fc" id="L9">        this.id = id;</span>
+<span class="fc" id="L10">        this.name = name;</span>
+<span class="fc" id="L11">    }</span>
     public Long getId() {
-<span class="fc" id="L15">        return this.id;</span>
+<span class="fc" id="L13">        return id;</span>
     }
-
+    public void setId(Long id) {
+<span class="nc" id="L16">        this.id = id;</span>
+<span class="nc" id="L17">    }</span>
     public String getName() {
-<span class="fc" id="L19">        return this.name;</span>
+<span class="fc" id="L19">        return name;</span>
     }
-
     public void setName(String name) {
-<span class="nc" id="L23">        this.name = name;</span>
-<span class="nc" id="L24">    }</span>
-
+<span class="nc" id="L22">        this.name = name;</span>
+<span class="nc" id="L23">    }</span>
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (this == o) return true;</span>
+<span class="nc bnc" id="L27" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="nc" id="L28">        AuthorModel author = (AuthorModel) o;</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        return Objects.equals(id, author.id) &amp;&amp;</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">                Objects.equals(name, author.name);</span>
+    }
+    @Override
+    public int hashCode() {
+<span class="nc" id="L34">        return Objects.hash(id, name);</span>
+    }
     @Override
     public String toString() {
-<span class="nc" id="L28">        return &quot;Author{&quot; +</span>
+<span class="nc" id="L38">        return &quot;AuthorModel{&quot; +</span>
                 &quot;id=&quot; + id +
                 &quot;, name='&quot; + name + '\'' +
                 '}';

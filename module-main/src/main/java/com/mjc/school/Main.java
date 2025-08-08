@@ -1,105 +1,67 @@
 package com.mjc.school;
 
-import com.mjc.school.controller.NewsController;
-import com.mjc.school.service.dto.NewsRequestDto;
-import com.mjc.school.service.impl.NewsService;
+import com.mjc.school.controller.Controller;
+import com.mjc.school.repository.impl.DataSourceImpl;
+import com.mjc.school.repository.dataSource.AuthorData;
+import com.mjc.school.repository.dataSource.NewsData;
+import com.mjc.school.service.dto.NewsDTO;
+import com.mjc.school.service.NewsService;
+import com.mjc.school.service.impl.NewsServiceImpl;
+import com.mjc.school.service.validators.Validator;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int operationNumber = 1;
-        NewsService newsService = new NewsService();
-        NewsController controller = new NewsController(newsService);
+        int operation = 0;
         Scanner scanner = new Scanner(System.in);
+
+        AuthorData authorDataSource = new AuthorData();
+        NewsData newsDataSource = new NewsData(authorDataSource);
+        DataSourceImpl dataSource = new DataSourceImpl(authorDataSource, newsDataSource);
+
+        NewsService newsService = new NewsServiceImpl(dataSource, Validator.getInstance());
+        Controller controller = new Controller(newsService);
+
         do {
-            System.out.println("""
-                    Enter the number of operation:
-                    1 - Get all news.
-                    2 - Get news by id.
-                    3 - Create news.
-                    4 - Update news.
-                    5 - Remove news by id.
-                    0 - Exit.""");
-            if (scanner.hasNextInt()) {
-                operationNumber = scanner.nextInt();
-            } else {
-                scanner.nextLine();
-                System.out.println("Command not found.");
-                continue;
-            }
-            try {
-                switch (operationNumber) {
-                    case 1 -> {
-                        System.out.println("All news");
-                        controller.readAll().forEach(System.out::println);
-                    }
-                    case 2 -> {
-                        scanner = new Scanner(System.in);
-                        System.out.println("Enter id");
-                        int id;
-                        if (scanner.hasNextInt()) {
-                            id = scanner.nextInt();
-                            System.out.println(controller.readById(id));
-                        } else {
-                            throw new RuntimeException("INT_VALUE_OUT_OF_RANGE");
-                        }
-                    }
-                    case 3 -> {
-                        scanner = new Scanner(System.in);
-                        System.out.println("creating news");
-                        System.out.println("Enter title");
-                        String title = scanner.nextLine();
-                        System.out.println("Enter content");
-                        String content = scanner.nextLine();
-                        System.out.println("Enter Author id");
-                        Long authorId = scanner.nextLong();
-                        System.out.println(controller.create(new NewsRequestDto(title, content, authorId)));
-                    }
-                    case 4 -> {
-                        scanner = new Scanner(System.in);
-                        System.out.println("updating news");
-                        System.out.println("Enter id");
-                        if (scanner.hasNextLong()) {
-                            scanner.nextLong();
-                        } else {
-                            throw new RuntimeException("INT_VALUE_OUT_OF_RANGE");
-                        }
-                        System.out.println("Enter title");
-                        scanner.nextLine();
-                        String title = scanner.nextLine();
-                        System.out.println("Enter content.txt");
-                        String content = scanner.nextLine();
-                        System.out.println("Enter Author id");
-                        long authId;
-                        if (scanner.hasNextInt()) {
-                            authId = scanner.nextLong();
-                            System.out.println(controller.update(new NewsRequestDto(title, content, authId)));
-                        } else {
-                            throw new RuntimeException("INT_VALUE_OUT_OF_RANGE");
-                        }
-                    }
-                    case 5 -> {
-                        scanner = new Scanner(System.in);
-                        System.out.println("Enter id");
-                        long id;
-                        if (scanner.hasNextInt()) {
-                            id = scanner.nextLong();
-                            System.out.println(controller.delete(id));
-                        } else {
-                            throw new RuntimeException("INT_VALUE_OUT_OF_RANGE");
-                        }
-
-                    }
-                    case 0 -> System.out.println("exiting");
-
-                    default -> System.out.println("Unknown command");
-
+            System.out.println("Choose operation:\n1. Get all news\n2. Get news by id\n3. Create news\n4. Update news\n5. Delete news\n0. Exit");
+            operation = scanner.nextInt();
+            switch (operation) {
+                case 1 -> controller.getAllNews().forEach(System.out::println);
+                case 2 -> {
+                    System.out.println("Enter new id:");
+                    System.out.println(controller.getNewsById(scanner.nextLong()));
                 }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
+                case 3 -> {
+                    System.out.println("Enter news title:");
+                    String title = scanner.next();
+                    System.out.println("Enter news content:");
+                    String content = scanner.next();
+                    System.out.println("Enter news author id:");
+                    Long authorId = scanner.nextLong();
+                    System.out.println(controller.createNews(new NewsDTO(title, content, authorId)));
+                }
+                case 4 -> {
+                    System.out.println("Enter news id:");
+                    Long id = scanner.nextLong();
+                    System.out.println("Enter news title:");
+                    String title = scanner.next();
+                    System.out.println("Enter news content:");
+                    String content = scanner.next();
+                    System.out.println("Enter news author id:");
+                    Long authorId = scanner.nextLong();
+                    System.out.println(controller.updateNews(id,new NewsDTO(title, content, authorId)));
+                }
+                case 5 ->{
+                    System.out.println("Enter news id:");
+                    controller.deleteNews(scanner.nextLong());
+                }
 
-        } while (operationNumber != 0);
+                case 0 ->{
+                    System.out.println("Goodbye!");
+                    scanner.close();
+                }
+            }
+        } while (operation != 0);
     }
 }

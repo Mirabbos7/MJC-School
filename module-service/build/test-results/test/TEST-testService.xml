@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testService" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-11-12T20:31:46" hostname="DESKTOP-NAKCJJ0" time="2.797">
+  <properties/>
+  <testcase name="testCreateNews_Success()" classname="testService" time="2.603"/>
+  <testcase name="testGetAllNews()" classname="testService" time="0.015"/>
+  <testcase name="testDeleteNews_Success()" classname="testService" time="0.049"/>
+  <testcase name="testUpdateNews_Success()" classname="testService" time="0.024"/>
+  <testcase name="testUpdateNews_NewsNotFound()" classname="testService" time="0.009"/>
+  <testcase name="testDeleteNews_NewsNotFound()" classname="testService" time="0.024"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

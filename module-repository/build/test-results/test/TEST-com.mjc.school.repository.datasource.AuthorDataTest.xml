@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.repository.datasource.AuthorDataTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-08-08T14:21:27" hostname="MIRAKING" time="0.052">
+  <properties/>
+  <testcase name="testAuthorListSize()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.037"/>
+  <testcase name="testFirstAuthorModelName()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.004"/>
+  <testcase name="testAuthorsSize()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.001"/>
+  <testcase name="testFirstAuthorListEntry()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.0"/>
+  <testcase name="testFirstAuthorModelId()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.001"/>
+  <testcase name="testAuthorsListNotNull()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.002"/>
+  <testcase name="testAuthorListNotNull()" classname="com.mjc.school.repository.datasource.AuthorDataTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

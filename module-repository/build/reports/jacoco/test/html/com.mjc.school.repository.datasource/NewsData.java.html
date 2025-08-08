@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NewsData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">module-repository</a> &gt; <a href="index.source.html" class="el_package">com.mjc.school.repository.dataSource</a> &gt; <span class="el_source">NewsData.java</span></div><h1>NewsData.java</h1><pre class="source lang-java linenums">package com.mjc.school.repository.dataSource;
+
+import com.mjc.school.repository.model.AuthorModel;
+import com.mjc.school.repository.model.NewsModel;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class NewsData {
+<span class="fc" id="L16">    private static final DateTimeFormatter ISO_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;</span>
+    private List&lt;String&gt; newsList;
+    private List&lt;String&gt; contentList;
+    private List&lt;NewsModel&gt; news;
+    private AuthorData authorDataSource;
+
+<span class="fc" id="L22">    public NewsData(AuthorData authorDataSource) {</span>
+<span class="fc" id="L23">        newsList = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L24">        contentList = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L25">        news = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">        this.authorDataSource = authorDataSource;</span>
+<span class="fc" id="L27">        loadNews();</span>
+<span class="fc" id="L28">        loadContent();</span>
+<span class="fc" id="L29">        newsCreateList();</span>
+<span class="fc" id="L30">    }</span>
+    private Long getAuthorsId(int i) {
+<span class="fc" id="L32">        List&lt;AuthorModel&gt; authors = authorDataSource.getAuthors();</span>
+<span class="pc bpc" id="L33" title="2 of 4 branches missed.">        if (i &lt; 0 || i &gt;= authors.size()) {</span>
+<span class="nc" id="L34">            throw new IllegalArgumentException(&quot;Index out of bounds&quot;);</span>
+        }
+<span class="fc" id="L36">        return authors.get(authors.size() - 1 - i).getId();</span>
+    }
+    public List&lt;NewsModel&gt; getNews() {
+<span class="fc" id="L39">        return news;</span>
+    }
+    private void newsCreateList() {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (int i = 0; i &lt; newsList.size(); i++) {</span>
+<span class="fc" id="L43">            news.add(new NewsModel(</span>
+<span class="fc" id="L44">                    (long) i,</span>
+<span class="fc" id="L45">                    newsList.get(i),</span>
+<span class="fc" id="L46">                    contentList.get(i),</span>
+<span class="fc" id="L47">                    getCurrentDateTimeInISOFormat(),</span>
+<span class="fc" id="L48">                    getCurrentDateTimeInISOFormat(),</span>
+<span class="fc" id="L49">                    getAuthorsId(i)</span>
+            ));
+        }
+<span class="fc" id="L52">    }</span>
+
+    public List&lt;String&gt; getNewsList() {
+<span class="fc" id="L55">        return newsList;</span>
+    }
+    public List&lt;String&gt; getContentList() {
+<span class="fc" id="L58">        return contentList;</span>
+    }
+
+    private void loadNews() {
+<span class="fc" id="L62">        try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream(&quot;news.txt&quot;);</span>
+<span class="fc" id="L63">            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {</span>
+            String line;
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L66">                newsList.add(line);</span>
+            }
+<span class="nc" id="L68">        } catch (IOException e) {</span>
+<span class="nc" id="L69">            System.err.println(&quot;NewsDataSource (news) error&quot; + e.getMessage());</span>
+<span class="fc" id="L70">        }</span>
+<span class="fc" id="L71">    }</span>
+    private void loadContent() {
+<span class="fc" id="L73">        try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream(&quot;content.txt&quot;);</span>
+<span class="fc" id="L74">        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {</span>
+            String line;
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L77">                contentList.add(line);</span>
+            }
+<span class="nc" id="L79">        } catch (IOException e) {</span>
+<span class="nc" id="L80">            System.err.println(&quot;NewsDataSource (content) error&quot; + e.getMessage());</span>
+<span class="fc" id="L81">        }</span>
+<span class="fc" id="L82">    }</span>
+    private LocalDateTime getCurrentDateTimeInISOFormat() {
+<span class="fc" id="L84">        return LocalDateTime.now();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.repository.util.AuthorModelUtilsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-07T15:21:38" hostname="MIRAKING" time="0.001">
-  <properties/>
-  <testcase name="resetAutoId_setsStaticFieldToOne()" classname="com.mjc.school.repository.util.AuthorModelUtilsTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
