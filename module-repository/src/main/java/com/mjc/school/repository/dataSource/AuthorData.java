@@ -1,6 +1,8 @@
 package com.mjc.school.repository.dataSource;
 
 import com.mjc.school.repository.model.AuthorModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorData {
+    private static final Logger logger = LoggerFactory.getLogger(AuthorData.class);
     private List<String> authorList;
     private List<AuthorModel> authors;
     public AuthorData() {
@@ -32,7 +35,7 @@ public class AuthorData {
                 authorList.add(line);
             }
         } catch (IOException e) {
-            System.err.println("AuthorDataSource read error" + e.getMessage());
+            logger.error("AuthorDataSource read error" + e.getMessage());
         }
     }
     private void authorsCreateList() {

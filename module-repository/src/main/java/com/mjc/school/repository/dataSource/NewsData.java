@@ -2,6 +2,8 @@ package com.mjc.school.repository.dataSource;
 
 import com.mjc.school.repository.model.AuthorModel;
 import com.mjc.school.repository.model.NewsModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsData {
+    private static final Logger logger = LoggerFactory.getLogger(NewsData.class);
     private List<String> newsList;
     private List<String> contentList;
     private List<NewsModel> news;
@@ -65,7 +68,7 @@ public class NewsData {
                 newsList.add(line);
             }
         } catch (IOException e) {
-            System.err.println("NewsDataSource (news) error" + e.getMessage());
+            logger.error("NewsDataSource (news) error" + e.getMessage());
         }
     }
     private void loadContent() {
@@ -76,7 +79,7 @@ public class NewsData {
                 contentList.add(line);
             }
         } catch (IOException e) {
-            System.err.println("NewsDataSource (content) error" + e.getMessage());
+            logger.error("NewsDataSource (content) error" + e.getMessage());
         }
     }
     private LocalDateTime getCurrentDateTimeInISOFormat() {

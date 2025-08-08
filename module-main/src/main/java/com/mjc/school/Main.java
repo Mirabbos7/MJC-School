@@ -39,7 +39,7 @@ public class Main {
 
             while (!scanner.hasNextInt()) {
                 logger.warn("Invalid input. Please enter a number.");
-                scanner.next(); // Consume invalid input
+                scanner.next();
             }
 
             operation = scanner.nextInt();

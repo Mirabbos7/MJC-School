@@ -1,6 +1,7 @@
 package com.mjc.school.service.impl;
 
 import com.mjc.school.repository.DataSource;
+import com.mjc.school.repository.dataSource.NewsData;
 import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.NewsMapper;
 import com.mjc.school.service.NewsService;
@@ -9,6 +10,8 @@ import com.mjc.school.service.exceptions.ContentLException;
 import com.mjc.school.service.exceptions.DataFormatException;
 import com.mjc.school.service.exceptions.TitleLException;
 import com.mjc.school.service.validators.Validator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.time.LocalDateTime;
@@ -16,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class NewsServiceImpl implements NewsService {
+    private static final Logger logger = LoggerFactory.getLogger(NewsServiceImpl.class);
     private final DataSource dataSource;
     private final Validator validator;
 
@@ -58,7 +62,7 @@ public class NewsServiceImpl implements NewsService {
                     news.getAuthorId()
             )));
         } catch(TitleLException | ContentLException | DataFormatException e) {
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
         return null;
     }
@@ -80,7 +84,7 @@ public class NewsServiceImpl implements NewsService {
                     )
             ));
         } catch(TitleLException | ContentLException | DataFormatException e) {
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
         return null;
     }
