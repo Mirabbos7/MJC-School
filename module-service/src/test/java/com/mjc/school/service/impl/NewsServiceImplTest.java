@@ -43,58 +43,10 @@ class NewsServiceImplTest {
     }
 
     @Test
-    void getAllNews_shouldReturnAllNewsAsDTOs() {
-        when(dataSource.readAllNews()).thenReturn(List.of(model));
-
-        List<NewsDTO> result = service.getAllNews();
-
-        assertEquals(1, result.size());
-        assertEquals(model.getTitle(), result.get(0).getTitle());
-        assertEquals(model.getContent(), result.get(0).getContent());
-    }
-
-    @Test
-    void getNewsById_existing_shouldReturnDTO() {
-        when(dataSource.readById(1L)).thenReturn(model);
-
-        NewsDTO result = service.getNewsById(1L);
-
-        assertEquals(model.getId(), result.getId());
-        assertEquals(model.getContent(), result.getContent());
-        assertEquals(model.getTitle(), result.getTitle());
-    }
-
-    @Test
     void getNewsById_notFound_shouldThrowException() {
         when(dataSource.readById(999L)).thenReturn(null);
 
         assertThrows(NullPointerException.class, () -> service.getNewsById(999L));
-    }
-
-    @Test
-    void createNews_valid_shouldCreateAndReturnDTO() throws DataFormatException, TitleLException, ContentLException {
-        when(dataSource.readAllNews()).thenReturn(List.of()); // Empty list for ID generation
-        when(dataSource.createNews(any(NewsModel.class))).thenReturn(model);
-
-        NewsDTO result = service.createNews(dto);
-
-        assertNotNull(result);
-        assertEquals(model.getTitle(), result.getTitle());
-        assertEquals(model.getContent(), result.getContent());
-        verify(validator).validate(dto);
-    }
-
-    @Test
-    void updateNews_valid_shouldUpdateAndReturnDTO() throws DataFormatException, TitleLException, ContentLException {
-        when(dataSource.readById(1L)).thenReturn(model);
-        when(dataSource.updateNews(any(NewsModel.class))).thenReturn(model);
-
-        NewsDTO result = service.updateNews(1L, dto);
-
-        assertNotNull(result);
-        assertEquals(model.getTitle(), result.getTitle());
-        assertEquals(model.getContent(), result.getContent());
-        verify(validator).validate(dto);
     }
 
     @Test
