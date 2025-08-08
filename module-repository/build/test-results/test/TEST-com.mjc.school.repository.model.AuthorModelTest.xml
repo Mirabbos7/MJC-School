@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.repository.model.AuthorModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:06:02" hostname="MIRAKING" time="0.018">
+<testsuite name="com.mjc.school.repository.model.AuthorModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:45:26" hostname="MIRAKING" time="0.014">
   <properties/>
-  <testcase name="testToString()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.007"/>
-  <testcase name="testEqualsDifferentName()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.002"/>
+  <testcase name="testToString()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.006"/>
+  <testcase name="testEqualsDifferentName()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.003"/>
   <testcase name="testEqualsEqualObjects()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.0"/>
-  <testcase name="testConstructorAndGetters()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.001"/>
-  <testcase name="testEqualsDifferentClass()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.001"/>
-  <testcase name="testHashCodeConsistency()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.001"/>
+  <testcase name="testConstructorAndGetters()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.0"/>
+  <testcase name="testEqualsDifferentClass()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.0"/>
+  <testcase name="testHashCodeConsistency()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.0"/>
   <testcase name="testEqualsNull()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.0"/>
   <testcase name="testEqualsSameObject()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.0"/>
   <testcase name="testSetters()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.0"/>
-  <testcase name="testEqualsDifferentId()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.001"/>
+  <testcase name="testEqualsDifferentId()" classname="com.mjc.school.repository.model.AuthorModelTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

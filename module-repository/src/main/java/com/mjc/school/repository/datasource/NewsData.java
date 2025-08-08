@@ -1,4 +1,4 @@
-package com.mjc.school.repository.dataSource;
+package com.mjc.school.repository.datasource;
 
 import com.mjc.school.repository.model.AuthorModel;
 import com.mjc.school.repository.model.NewsModel;
@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +21,8 @@ public class NewsData {
     private AuthorData authorDataSource;
 
     public NewsData(AuthorData authorDataSource) {
-        newsList = new ArrayList<String>();
-        contentList = new ArrayList<String>();
+        newsList = new ArrayList<>();
+        contentList = new ArrayList<>();
         news = new ArrayList<>();
         this.authorDataSource = authorDataSource;
         loadNews();

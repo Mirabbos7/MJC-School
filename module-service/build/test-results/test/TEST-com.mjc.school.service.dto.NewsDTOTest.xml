@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.service.dto.NewsDTOTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:06:04" hostname="MIRAKING" time="0.067">
+<testsuite name="com.mjc.school.service.dto.NewsDTOTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:45:28" hostname="MIRAKING" time="0.064">
   <properties/>
-  <testcase name="testPartialConstructor_setsAuthorId()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.035"/>
+  <testcase name="testPartialConstructor_setsAuthorId()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.032"/>
   <testcase name="testPartialConstructor_setsCreateDate()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.002"/>
   <testcase name="testSettersAndGetters_title()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
   <testcase name="testFullConstructor_setsAllFields()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.003"/>
-  <testcase name="testPartialConstructor_setsContent()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
+  <testcase name="testPartialConstructor_setsContent()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
   <testcase name="testDefaultConstructor_idIsNull()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
   <testcase name="testDefaultConstructor_titleIsNull()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
   <testcase name="testFullConstructor_setsCreateDate()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
-  <testcase name="testFullConstructor_setsAuthorId()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
+  <testcase name="testFullConstructor_setsAuthorId()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
   <testcase name="testSettersAndGetters_content()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
   <testcase name="testSettersAndGetters_lastUpdateDate()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
   <testcase name="testToString_containsId()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.011"/>
-  <testcase name="testSettersAndGetters_id()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
-  <testcase name="testSettersAndGetters_createDate()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
+  <testcase name="testSettersAndGetters_id()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
+  <testcase name="testSettersAndGetters_createDate()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
   <testcase name="testDefaultConstructor_lastUpdateDateIsNull()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
-  <testcase name="testSettersAndGetters_authorId()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
-  <testcase name="testFullConstructor_setsTitle()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
-  <testcase name="testDefaultConstructor_contentIsNull()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
+  <testcase name="testSettersAndGetters_authorId()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
+  <testcase name="testFullConstructor_setsTitle()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
+  <testcase name="testDefaultConstructor_contentIsNull()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
   <testcase name="testDefaultConstructor_authorIdIsNull()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
-  <testcase name="testFullConstructor_setsLastUpdateDate()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.001"/>
+  <testcase name="testFullConstructor_setsLastUpdateDate()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
   <testcase name="testPartialConstructor_setsLastUpdateDate()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
   <testcase name="testPartialConstructor_setsTitle()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>
   <testcase name="testDefaultConstructor_createDateIsNull()" classname="com.mjc.school.service.dto.NewsDTOTest" time="0.0"/>

@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class NewsModel {
-    //private static long idCounter = 1;
     private Long id;
     private String title;
     private String content;
@@ -12,73 +11,73 @@ public class NewsModel {
     private LocalDateTime lastUpdateDate;
     private Long authorId;
 
-<span class="fc" id="L15">    public NewsModel(Long id, String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, Long authorId) {</span>
-<span class="fc" id="L16">        this.id = id;</span>
-<span class="fc" id="L17">        this.title = title;</span>
-<span class="fc" id="L18">        this.content = content;</span>
-<span class="fc" id="L19">        this.createDate = createDate;</span>
-<span class="fc" id="L20">        this.lastUpdateDate = lastUpdateDate;</span>
-<span class="fc" id="L21">        this.authorId = authorId;</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L14">    public NewsModel(Long id, String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, Long authorId) {</span>
+<span class="fc" id="L15">        this.id = id;</span>
+<span class="fc" id="L16">        this.title = title;</span>
+<span class="fc" id="L17">        this.content = content;</span>
+<span class="fc" id="L18">        this.createDate = createDate;</span>
+<span class="fc" id="L19">        this.lastUpdateDate = lastUpdateDate;</span>
+<span class="fc" id="L20">        this.authorId = authorId;</span>
+<span class="fc" id="L21">    }</span>
     public Long getId() {
-<span class="fc" id="L24">        return id;</span>
+<span class="fc" id="L23">        return id;</span>
     }
     public void setId(Long id) {
-<span class="fc" id="L27">        this.id = id;</span>
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L26">        this.id = id;</span>
+<span class="fc" id="L27">    }</span>
     public String getTitle() {
-<span class="fc" id="L30">        return title;</span>
+<span class="fc" id="L29">        return title;</span>
     }
 
     public void setTitle(String title) {
-<span class="fc" id="L34">        this.title = title;</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L33">        this.title = title;</span>
+<span class="fc" id="L34">    }</span>
     public String getContent() {
-<span class="fc" id="L37">        return content;</span>
+<span class="fc" id="L36">        return content;</span>
     }
     public void setContent(String content) {
-<span class="fc" id="L40">        this.content = content;</span>
-<span class="fc" id="L41">    }</span>
+<span class="fc" id="L39">        this.content = content;</span>
+<span class="fc" id="L40">    }</span>
     public LocalDateTime getCreateDate() {
-<span class="fc" id="L43">        return createDate;</span>
+<span class="fc" id="L42">        return createDate;</span>
     }
     public void setCreateDate(LocalDateTime createDate) {
-<span class="fc" id="L46">        this.createDate = createDate;</span>
-<span class="fc" id="L47">    }</span>
+<span class="fc" id="L45">        this.createDate = createDate;</span>
+<span class="fc" id="L46">    }</span>
     public LocalDateTime getLastUpdateDate() {
-<span class="fc" id="L49">        return lastUpdateDate;</span>
+<span class="fc" id="L48">        return lastUpdateDate;</span>
     }
 
     public Long getAuthorId() {
-<span class="fc" id="L53">        return authorId;</span>
+<span class="fc" id="L52">        return authorId;</span>
     }
     public void setAuthorId(Long authorId) {
-<span class="fc" id="L56">        this.authorId = authorId;</span>
-<span class="fc" id="L57">    }</span>
+<span class="fc" id="L55">        this.authorId = authorId;</span>
+<span class="fc" id="L56">    }</span>
 
     public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
-<span class="fc" id="L60">        this.lastUpdateDate = lastUpdateDate;</span>
-<span class="fc" id="L61">    }</span>
+<span class="fc" id="L59">        this.lastUpdateDate = lastUpdateDate;</span>
+<span class="fc" id="L60">    }</span>
 
     @Override
     public boolean equals(Object o) {
-<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (this == o) return true;</span>
-<span class="fc bfc" id="L66" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
-<span class="fc" id="L67">        NewsModel news = (NewsModel) o;</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">        return Objects.equals(id, news.id) &amp;&amp;</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">                Objects.equals(title, news.title) &amp;&amp;</span>
-<span class="fc bfc" id="L70" title="All 2 branches covered.">                Objects.equals(content, news.content) &amp;&amp;</span>
-<span class="fc bfc" id="L71" title="All 2 branches covered.">                Objects.equals(createDate, news.createDate) &amp;&amp;</span>
-<span class="fc bfc" id="L72" title="All 2 branches covered.">                Objects.equals(lastUpdateDate, news.lastUpdateDate) &amp;&amp;</span>
-<span class="fc bfc" id="L73" title="All 2 branches covered.">                Objects.equals(authorId, news.authorId);</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L65" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L66">        NewsModel news = (NewsModel) o;</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        return Objects.equals(id, news.id) &amp;&amp;</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">                Objects.equals(title, news.title) &amp;&amp;</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">                Objects.equals(content, news.content) &amp;&amp;</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                Objects.equals(createDate, news.createDate) &amp;&amp;</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">                Objects.equals(lastUpdateDate, news.lastUpdateDate) &amp;&amp;</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">                Objects.equals(authorId, news.authorId);</span>
     }
     @Override
     public int hashCode() {
-<span class="fc" id="L77">        return Objects.hash(id, title, content, createDate, lastUpdateDate, authorId);</span>
+<span class="fc" id="L76">        return Objects.hash(id, title, content, createDate, lastUpdateDate, authorId);</span>
     }
     @Override
     public String toString() {
-<span class="fc" id="L81">        return &quot;NewsModel{&quot; +</span>
+<span class="fc" id="L80">        return &quot;NewsModel{&quot; +</span>
                 &quot;id=&quot; + id +
                 &quot;, title='&quot; + title + '\'' +
                 &quot;, content='&quot; + content + '\'' +

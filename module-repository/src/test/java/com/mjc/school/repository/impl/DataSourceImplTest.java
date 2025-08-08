@@ -1,7 +1,7 @@
 package com.mjc.school.repository.impl;
 
-import com.mjc.school.repository.dataSource.AuthorData;
-import com.mjc.school.repository.dataSource.NewsData;
+import com.mjc.school.repository.datasource.AuthorData;
+import com.mjc.school.repository.datasource.NewsData;
 import com.mjc.school.repository.model.AuthorModel;
 import com.mjc.school.repository.model.NewsModel;
 import org.junit.jupiter.api.BeforeEach;

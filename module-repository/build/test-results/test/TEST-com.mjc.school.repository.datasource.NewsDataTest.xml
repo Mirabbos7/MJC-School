@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.repository.datasource.NewsDataTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:06:01" hostname="MIRAKING" time="0.021">
+<testsuite name="com.mjc.school.repository.datasource.NewsDataTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:45:25" hostname="MIRAKING" time="0.02">
   <properties/>
-  <testcase name="testNewsListSize()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.0"/>
+  <testcase name="testNewsListSize()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.001"/>
   <testcase name="testFirstNewsModelLastUpdateDateNotNull()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.0"/>
   <testcase name="testContentListSize()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.0"/>
-  <testcase name="testNewsModelListSize()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.001"/>
-  <testcase name="testFirstNewsModelAuthorIdNotNull()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.001"/>
+  <testcase name="testNewsModelListSize()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.0"/>
+  <testcase name="testFirstNewsModelAuthorIdNotNull()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.0"/>
   <testcase name="testFirstNewsModelCreateDateNotNull()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.001"/>
-  <testcase name="testFirstNewsModelContent()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.002"/>
+  <testcase name="testFirstNewsModelContent()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.001"/>
   <testcase name="testNewsModelIdsAreUnique()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.0"/>
   <testcase name="testFirstNewsModelTitle()" classname="com.mjc.school.repository.datasource.NewsDataTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

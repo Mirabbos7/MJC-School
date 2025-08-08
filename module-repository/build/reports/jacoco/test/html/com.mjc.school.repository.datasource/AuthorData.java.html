@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthorData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">module-repository</a> &gt; <a href="index.source.html" class="el_package">com.mjc.school.repository.dataSource</a> &gt; <span class="el_source">AuthorData.java</span></div><h1>AuthorData.java</h1><pre class="source lang-java linenums">package com.mjc.school.repository.dataSource;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthorData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">module-repository</a> &gt; <a href="index.source.html" class="el_package">com.mjc.school.repository.datasource</a> &gt; <span class="el_source">AuthorData.java</span></div><h1>AuthorData.java</h1><pre class="source lang-java linenums">package com.mjc.school.repository.datasource;
 
 import com.mjc.school.repository.model.AuthorModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,36 +12,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorData {
+<span class="fc" id="L15">    private static final Logger logger = LoggerFactory.getLogger(AuthorData.class);</span>
     private List&lt;String&gt; authorList;
     private List&lt;AuthorModel&gt; authors;
-<span class="fc" id="L15">    public AuthorData() {</span>
-<span class="fc" id="L16">        authorList = new ArrayList&lt;String&gt;();</span>
-<span class="fc" id="L17">        authors = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L18">        loadAuthors();</span>
-<span class="fc" id="L19">        authorsCreateList();</span>
-<span class="fc" id="L20">    }</span>
+<span class="fc" id="L18">    public AuthorData() {</span>
+<span class="fc" id="L19">        authorList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L20">        authors = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L21">        loadAuthors();</span>
+<span class="fc" id="L22">        authorsCreateList();</span>
+<span class="fc" id="L23">    }</span>
     public List&lt;AuthorModel&gt; getAuthors() {
-<span class="fc" id="L22">        return authors;</span>
+<span class="fc" id="L25">        return authors;</span>
     }
     public List&lt;String&gt; getAuthorList() {
-<span class="fc" id="L25">        return authorList;</span>
+<span class="fc" id="L28">        return authorList;</span>
     }
     private void loadAuthors() {
-<span class="fc" id="L28">        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(&quot;author.txt&quot;);</span>
-<span class="fc" id="L29">             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {</span>
+<span class="fc" id="L31">        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(&quot;author.txt&quot;);</span>
+<span class="fc" id="L32">             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {</span>
             String line;
-<span class="fc bfc" id="L31" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
-<span class="fc" id="L32">                authorList.add(line);</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L35">                authorList.add(line);</span>
             }
-<span class="nc" id="L34">        } catch (IOException e) {</span>
-<span class="nc" id="L35">            System.err.println(&quot;AuthorDataSource read error&quot; + e.getMessage());</span>
-<span class="fc" id="L36">        }</span>
-<span class="fc" id="L37">    }</span>
+<span class="nc" id="L37">        } catch (IOException e) {</span>
+<span class="nc" id="L38">            logger.error(&quot;AuthorDataSource read error&quot; + e.getMessage());</span>
+<span class="fc" id="L39">        }</span>
+<span class="fc" id="L40">    }</span>
     private void authorsCreateList() {
-<span class="fc" id="L39">        long count = 0;</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (String author : authorList) {</span>
-<span class="fc" id="L41">            authors.add(new AuthorModel(count++, author));</span>
-<span class="fc" id="L42">        }</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L42">        long count = 0;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (String author : authorList) {</span>
+<span class="fc" id="L44">            authors.add(new AuthorModel(count++, author));</span>
+<span class="fc" id="L45">        }</span>
+<span class="fc" id="L46">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

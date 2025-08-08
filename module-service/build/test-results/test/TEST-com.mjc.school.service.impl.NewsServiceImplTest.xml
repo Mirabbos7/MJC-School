@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mjc.school.service.impl.NewsServiceImplTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:06:04" hostname="MIRAKING" time="1.323">
+<testsuite name="com.mjc.school.service.impl.NewsServiceImplTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-08-08T16:45:28" hostname="MIRAKING" time="1.312">
   <properties/>
-  <testcase name="testUpdateNews_validationFails_returnsNull()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="1.273"/>
+  <testcase name="testUpdateNews_validationFails_returnsNull()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="1.267"/>
   <testcase name="testUpdateNews_throwsDataFormatException_returnsNull()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.004"/>
   <testcase name="testUpdateNews_throwsTitleLException_returnsNull()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.003"/>
-  <testcase name="testDeleteNews_returnsTrue()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.017"/>
+  <testcase name="testDeleteNews_returnsTrue()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.016"/>
   <testcase name="testCreateNews_throwsContentLException_returnsNull()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.003"/>
-  <testcase name="testDeleteNews_returnsFalse()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.003"/>
-  <testcase name="testGetNewsById_throwsIfNotFound()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.007"/>
+  <testcase name="testDeleteNews_returnsFalse()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.004"/>
+  <testcase name="testGetNewsById_throwsIfNotFound()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.006"/>
   <testcase name="testCreateNews_validationFails_returnsNull()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.002"/>
   <testcase name="testCreateNews_throwsDataFormatException_returnsNull()" classname="com.mjc.school.service.impl.NewsServiceImplTest" time="0.002"/>
-  <system-out><![CDATA[Error
-Format
-Bad
-Invalid content
-Invalid title
-Invalid format
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Test worker] ERROR com.mjc.school.service.impl.NewsServiceImpl - Error
+[Test worker] ERROR com.mjc.school.service.impl.NewsServiceImpl - Format
+[Test worker] ERROR com.mjc.school.service.impl.NewsServiceImpl - Bad
+[Test worker] ERROR com.mjc.school.service.impl.NewsServiceImpl - Invalid content
+[Test worker] ERROR com.mjc.school.service.impl.NewsServiceImpl - Invalid title
+[Test worker] ERROR com.mjc.school.service.impl.NewsServiceImpl - Invalid format
+]]></system-err>
 </testsuite>

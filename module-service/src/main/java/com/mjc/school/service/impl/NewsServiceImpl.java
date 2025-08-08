@@ -1,7 +1,6 @@
 package com.mjc.school.service.impl;
 
 import com.mjc.school.repository.DataSource;
-import com.mjc.school.repository.dataSource.NewsData;
 import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.NewsMapper;
 import com.mjc.school.service.NewsService;

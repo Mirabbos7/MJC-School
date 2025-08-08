@@ -2,8 +2,8 @@ package com.mjc.school;
 
 import com.mjc.school.controller.Controller;
 import com.mjc.school.repository.impl.DataSourceImpl;
-import com.mjc.school.repository.dataSource.AuthorData;
-import com.mjc.school.repository.dataSource.NewsData;
+import com.mjc.school.repository.datasource.AuthorData;
+import com.mjc.school.repository.datasource.NewsData;
 import com.mjc.school.service.dto.NewsDTO;
 import com.mjc.school.service.NewsService;
 import com.mjc.school.service.impl.NewsServiceImpl;

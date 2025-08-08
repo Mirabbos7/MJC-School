@@ -1,7 +1,5 @@
 package com.mjc.school.repository.datasource;
 
-import com.mjc.school.repository.dataSource.AuthorData;
-import com.mjc.school.repository.dataSource.NewsData;
 import com.mjc.school.repository.model.NewsModel;
 import org.junit.jupiter.api.Test;
 
