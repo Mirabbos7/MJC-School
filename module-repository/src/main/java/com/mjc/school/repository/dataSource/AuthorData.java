@@ -13,7 +13,7 @@ public class AuthorData {
     private List<String> authorList;
     private List<AuthorModel> authors;
     public AuthorData() {
-        authorList = new ArrayList<String>();
+        authorList = new ArrayList<>();
         authors = new ArrayList<>();
         loadAuthors();
         authorsCreateList();
